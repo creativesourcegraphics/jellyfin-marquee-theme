@@ -1,0 +1,3199 @@
+/* Marquee for Jellyfin. Paste into Dashboard > General > Custom CSS. Assets: see assets/README.md */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Roboto:wght@400;500;700;900&family=Roboto+Condensed:wght@400;700&display=swap');
+
+:root{
+  --accent:           #e50914;
+  --mq-accent:        #e50914;
+  --mq-accent-rgb:    229, 9, 20;
+  --mq-radius:        10px;
+  --mq-hover-scale:   1.06;
+  --mq-hover-time:    .18s;
+  --mq-gutter:        8px;
+  --mq-surface:       #0b0b0c;
+  --mq-surface-2:     #151517;
+  --mq-line:          rgba(255,255,255,.10);
+}
+
+:root,
+[data-theme="dark"]{
+  --jf-palette-primary-main:         var(--mq-accent);
+  --jf-palette-primary-light:        #ff2b36;
+  --jf-palette-primary-dark:         #b0060f;
+  --jf-palette-primary-mainChannel:  var(--mq-accent-rgb);
+  --jf-palette-primary-lightChannel: 255 43 54;
+  --jf-palette-primary-darkChannel:  176 6 15;
+}
+
+.info-container{
+    display: none !important;
+}
+.genre{
+    display: none !important;
+}
+.plot-container.constrained-plot .plot-container{
+    display: none !important;
+}
+.logo-container{
+        top: 20vh!important;
+    left: 4vw!important;
+        align-items: flex-end!important;
+}
+#slides-container.pause-button{
+display:none !important;
+}
+.favorite-button{
+    display: none !important;
+}
+.plot{
+    display: none !important;
+}
+
+.card .cardImageContainer,
+.card .cardScalable{ overflow: hidden; border-radius: var(--mq-radius); }
+.card .cardScalable{
+  transition: transform var(--mq-hover-time) ease,
+              box-shadow var(--mq-hover-time) ease;
+  will-change: transform;
+}
+.card:hover .cardScalable,
+.card:focus-within .cardScalable{
+  transform: none;
+}
+.card{
+  border-radius: var(--mq-radius);
+  transition: transform var(--mq-hover-time) ease;
+  will-change: transform;
+  transform-origin: center center;
+}
+.card:hover,
+.card:focus-within{
+  transform: scale(var(--mq-hover-scale));
+  z-index: 2;
+  position: relative;
+}
+
+.card:hover .cardBox,
+.card:hover .cardPadder,
+.card:hover .cardImageContainer,
+.card:hover .cardImage,
+.card:hover .cardOverlayContainer,
+.card:hover .cardText,
+.card:hover .je-tag-host{ transform: none; }
+
+.itemsContainer.scrollSlider{ padding-block: 14px; }
+.verticalSection .emby-scroller{ overflow-y: visible; }
+
+.card .je-tag-host,
+.card .rating-overlay-container{
+  inset: 0;
+  pointer-events: none;
+}
+.card .je-tag-host > *,
+.card .rating-overlay-container > *{
+  position: absolute;
+  top: var(--mq-gutter);
+  right: var(--mq-gutter);
+  bottom: auto;
+  left: auto;
+  pointer-events: auto;
+}
+
+.cardFooter .cardText{ padding-right: 4px; }
+
+.skinHeader .pageTitleWithLogo{
+
+  height: 46px;
+  background-size: contain;
+  background-position: left center;
+  background-repeat: no-repeat;
+  width: 300px;
+}
+
+.videoPlayerContainer,
+.videoPlayerContainer video,
+.htmlvideoplayer{
+  background-color: #000;
+}
+.htmlvideoplayer{ object-fit: contain; }
+
+.button-submit,
+.emby-button.show-focus:focus,
+.navMenuOption-selected{
+  background: var(--mq-accent) !important;
+}
+.emby-input:focus,
+.emby-textarea:focus,
+.emby-select-withcolor:focus{
+  border-color: var(--mq-accent) !important;
+}
+.button-link,
+.buttonActive,
+.emby-tab-button:hover,
+.inputLabelFocused{
+  color: var(--mq-accent) !important;
+}
+
+.countIndicator,
+.playedIndicator,
+.indicator.countIndicator,
+.indicator.playedIndicator{
+  background-color: var(--mq-accent) !important;
+}
+.itemProgressBarForeground{ background-color: var(--mq-accent) !important; }
+.itemProgressBarForeground-recording{ background-color: #d8342c !important; }
+
+.listItemIcon:not(.listItemIcon-transparent){ background-color: var(--mq-accent) !important; }
+.listItemImageButton:hover{ color: var(--mq-accent) !important; }
+
+progress::-webkit-progress-value{ background-color: var(--mq-accent) !important; }
+progress[aria-valuenow]::before{ background-color: var(--mq-accent) !important; }
+.playbackProgress > div{ background-color: var(--mq-accent) !important; }
+
+.mdl-slider{ color: var(--mq-accent) !important; }
+.mdl-slider::-webkit-slider-thumb{ background: var(--mq-accent) !important; }
+.mdl-slider-background-lower{ background-color: var(--mq-accent) !important; }
+.sliderMarker.watched{ background-color: var(--mq-accent) !important; }
+.iconOsdProgressInner{ background-color: var(--mq-accent) !important; }
+
+.button-accent-flat{ color: var(--mq-accent) !important; }
+div[data-role="controlgroup"] a.ui-btn-active{ background-color: var(--mq-accent) !important; }
+
+.mdl-spinner__layer-1,
+.mdl-spinner__layer-2,
+.mdl-spinner__layer-3,
+.mdl-spinner__layer-4{ border-color: var(--mq-accent) !important; }
+
+.skinHeader .pageTitleWithLogo,
+.skinHeader .pageTitle{
+  background-image: url('/web/mq/logo.png') !important;
+  background-size: contain !important;
+  background-position: left center !important;
+  background-repeat: no-repeat !important;
+  height: 44px !important;
+  width: 165px !important;
+  margin-inline-end: 12px;
+}
+
+.skinHeader .pageTitle{
+  font-size: 0 !important;
+  color: transparent !important;
+  text-indent: -9999px;
+  overflow: hidden;
+}
+
+.skinHeader .pageTitleWithLogo,
+.skinHeader .pageTitle{
+  background-image: url('/web/mq/logo.png') !important;
+  background-size: contain !important;
+  background-position: left center !important;
+  background-repeat: no-repeat !important;
+  height: 26px !important;
+  width: 100px !important;
+  min-width: 100px !important;
+  margin-block: 0 !important;
+  align-self: center !important;
+  flex: 0 0 auto !important;
+}
+.skinHeader .pageTitle{
+  font-size: 0 !important; color: transparent !important;
+  text-indent: -9999px; overflow: hidden;
+}
+
+.cardImageContainer,
+.cardImageContainer.coveredImage,
+.defaultCardBackground,
+.defaultCardBackground1,.defaultCardBackground2,.defaultCardBackground3,
+.defaultCardBackground4,.defaultCardBackground5,.defaultCardBackground6{
+  background-color: #1b1b1f !important;
+}
+.cardImageIcon{ color: rgba(255,255,255,.22) !important; }
+
+.skinHeader{
+  height: auto !important;
+  min-height: 66px !important;
+}
+.skinHeader .headerTop{ min-height: 66px !important; }
+.skinHeader .headerLeft{ overflow: visible !important; }
+
+.skinHeader .pageTitleWithLogo,
+.skinHeader .pageTitle{
+  height: 38px !important;
+  width: 140px !important;
+  min-width: 140px !important;
+}
+
+.skinHeader + div .tabContent,
+#indexPage, .homePage{ padding-top: 70px !important; }
+
+.skinHeader .emby-tab-button-active,
+.skinHeader .emby-tab-button-active .emby-button-foreground,
+.headerTabs .emby-tab-button-active,
+.headerTabs .emby-tab-button-active .emby-button-foreground{
+  color: #fff !important;
+}
+
+.card .cardOverlayContainer{ overflow: hidden !important; }
+
+.card .je-tag-host > *, .card .rating-overlay-container > *{
+  background: rgba(12,12,14,.78) !important;
+  color: #fff !important;
+  border: 1px solid rgba(255,255,255,.16) !important;
+  border-radius: 999px !important;
+  font-size: 12px !important;
+  padding: 2px 8px !important;
+  box-shadow: none !important;
+}
+
+.skinHeader{
+  background: transparent !important;
+  transition: background-color .25s ease;
+}
+.skinHeader.skinHeader-withBackground,
+.skinHeader-blurred{
+  background: rgba(16,16,18,.92) !important;
+  backdrop-filter: blur(14px);
+}
+
+#indexPage, .homePage{ padding-top: 0 !important; }
+.libraryPage:not(.homePage){ padding-top: 74px !important; }
+
+@media (min-width: 2200px){
+  .libraryPage .itemsContainer.vertical-wrap .card.portraitCard,
+  .libraryPage .itemsContainer.vertical-wrap .card{ width: 16.15% !important; }
+}
+@media (min-width: 1500px) and (max-width: 2199px){
+  .libraryPage .itemsContainer.vertical-wrap .card.portraitCard,
+  .libraryPage .itemsContainer.vertical-wrap .card{ width: 19.4% !important; }
+}
+
+.card[data-type="TvChannel"] .cardImageContainer,
+.channelCard .cardImageContainer,
+.card.backdropCard[data-type="TvChannel"] .cardImageContainer{
+  background-size: contain !important;
+  background-color: #26262b !important;
+  background-origin: content-box !important;
+  padding: 14px !important;
+  box-sizing: border-box !important;
+}
+.je-media-badge, .je-type-badge, .media-badge, [class*="je-"] .badge, .je-discovery-card .type-chip{
+  background: rgba(12,12,14,.82) !important;
+  color: #fff !important;
+  border: 1px solid rgba(255,255,255,.22) !important;
+}
+
+.je-tag, .je-chip, .je-pill{
+  background: rgba(12,12,14,.82) !important; color:#fff !important;
+}
+
+.button-link, a.button-link, .emby-button.button-link{ color: var(--mq-accent,#e50914) !important; }
+.je-home-section:first-of-type, .homeSectionsContainer > .verticalSection:first-of-type{ scroll-margin-top: 70px; }
+.je-requests-page, .je-downloads-page{ padding-top: 74px !important; }
+
+.emby-checkbox:checked + span .checkboxOutline,
+.mdl-checkbox__box-outline{ border-color: var(--mq-accent,#e50914) !important; }
+.emby-checkbox:checked + span .checkboxIcon-checked{ background: var(--mq-accent,#e50914) !important; }
+
+.videoPlayerContainer{ z-index: 2000 !important; }
+#videoOsdPage, .videoOsdPage{ position: relative !important; z-index: 2 !important; }
+
+.detailRibbon, .skinHeader-withBackground{
+  background-image: none !important;
+}
+.detailRibbon{
+  background-color: transparent !important;
+}
+
+.itemBackdrop{
+  height: 40vh !important;
+}
+
+.card[data-type="Studio"] .cardImageContainer{
+  background-size: contain !important;
+  background-color: transparent !important;
+}
+
+.gradient-overlay,
+.backdrop-overlay,
+.backdrop-container,
+.backdrop-container .backdrop{
+  pointer-events: none !important;
+}
+
+.card .cardScalable,
+.card .cardPadder{
+  position: relative;
+}
+
+.card .cardImageContainer::after{
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 45%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,.55) 100%);
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.card .cardBox.cardBox-bottompadded{
+  margin-bottom: 0 !important;
+}
+.card .cardBox{
+  margin: 0 1em !important;
+}
+
+.itemProgressBar{
+  background: rgb(255 255 255 / 24%);
+  height: .55em;
+  filter: blur(1px);
+  position: relative;
+}
+.itemProgressBarForeground{
+  background-color: #e50914a6 !important;
+}
+
+#discovery-loading-indicator{
+  display: none !important;
+}
+
+.card .cardOverlayContainer{
+  background: rgba(15,15,18,.32) !important;
+}
+
+.paper-icon-button-light:not(.detailButton),
+.fab,
+.cardOverlayFab-primary{
+  border-radius: 50% !important;
+}
+
+.card .cardOverlayContainer .cardImageContainer{
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+.MuiAppBar-root{
+  background:linear-gradient(180deg, rgba(0,0,0,.85) 0%, rgba(0,0,0,.65) 55%, rgba(0,0,0,.35) 100%) !important;
+  box-shadow:none !important;
+  backdrop-filter:blur(6px);
+}
+.MuiAppBar-root, .MuiAppBar-root .MuiToolbar-root, .MuiAppBar-root .MuiButtonBase-root{
+  font-family:"Netflix Sans","Helvetica Neue","Segoe UI",Roboto,Ubuntu,sans-serif !important;
+}
+.MuiAppBar-root .MuiToolbar-root{
+  padding-left:24px !important;
+  padding-right:24px !important;
+  gap:4px;
+}
+@media (min-width:960px){
+  .MuiAppBar-root .MuiToolbar-root{padding-left:48px !important;padding-right:48px !important;}
+}
+@media (min-width:1600px){
+  .MuiAppBar-root .MuiToolbar-root{padding-left:60px !important;padding-right:60px !important;}
+}
+
+.MuiAppBar-root a.MuiButton-sizeLarge{
+  font-weight:800 !important;
+  letter-spacing:-.02em;
+  font-size:1.6rem !important;
+  color:var(--mq-accent,#e50914) !important;
+  margin-right:18px;
+  min-width:0 !important;
+  padding:6px 8px !important;
+  min-height:36.7px !important;
+  display:inline-flex !important;
+  align-items:center !important;
+}
+
+.MuiAppBar-root a.MuiButton-sizeMedium.MuiButton-textInherit{
+  font-size:.95rem !important;
+  font-weight:500 !important;
+  color:rgba(255,255,255,.75) !important;
+  text-transform:none !important;
+  border-radius:999px !important;
+  padding:6px 16px !important;
+  min-width:0 !important;
+  transition:background-color .2s ease, color .2s ease !important;
+}
+.MuiAppBar-root a.MuiButton-sizeMedium.MuiButton-textInherit:hover{
+  color:#fff !important;
+  background-color:rgba(255,255,255,.1) !important;
+}
+.MuiAppBar-root a.MuiButton-sizeMedium.MuiButton-textInherit.mq-nav-current{
+  color:#fff !important;
+  font-weight:700 !important;
+  background-color:rgba(255,255,255,.18) !important;
+}
+
+.MuiAppBar-root .MuiToolbar-root button.MuiButtonBase-root,
+.MuiAppBar-root .MuiToolbar-root a.MuiButtonBase-root:not(.MuiButton-sizeMedium):not(.MuiButton-sizeLarge){
+  border-radius:50% !important;
+  transition:background-color .2s ease !important;
+}
+.MuiAppBar-root .MuiToolbar-root button.MuiButtonBase-root:hover{
+  background-color:rgba(255,255,255,.1) !important;
+}
+
+.MuiAppBar-root a.MuiButton-sizeMedium{
+  font-size:.95rem !important;
+  font-weight:500 !important;
+  color:rgba(255,255,255,.75) !important;
+  text-transform:none !important;
+  border-radius:999px !important;
+  padding:6px 16px !important;
+  min-width:0 !important;
+  transition:background-color .2s ease, color .2s ease !important;
+}
+.MuiAppBar-root a.MuiButton-sizeMedium:hover{
+  color:#fff !important;
+  background-color:rgba(255,255,255,.1) !important;
+}
+.MuiAppBar-root a.MuiButton-sizeMedium.mq-nav-current,
+.MuiAppBar-root a.MuiButton-sizeMedium.MuiButton-colorPrimary{
+  color:#fff !important;
+  font-weight:700 !important;
+  background-color:rgba(255,255,255,.18) !important;
+}
+
+.MuiAppBar-root a.MuiButton-sizeLarge{
+  background-image: url('/web/mq/nav-logo.png') !important;
+  background-repeat: no-repeat !important;
+  background-position: left center !important;
+  background-size: contain !important;
+  width: 130px !important;
+  height: 34px !important;
+  min-width: 130px !important;
+  color: transparent !important;
+  font-size: 0 !important;
+  text-indent: -9999px;
+  overflow: hidden;
+}
+
+.editorsChoiceHeroMode #homeTab{
+  transform: translateY(19.7vh) !important;
+}
+
+.pageTitleWithDefaultLogo, .pageTitleWithLogo.pageTitleWithDefaultLogo, h3.pageTitle.pageTitleWithDefaultLogo{
+  display: none !important;
+}
+
+html, body{
+  overflow: hidden !important;
+  height: 100%;
+}
+main.MuiBox-root{ scrollbar-gutter: stable; }
+
+.MuiAppBar-root{
+  transition: height .18s ease !important;
+}
+.MuiAppBar-root .MuiToolbar-root{
+  transition: opacity .15s ease !important;
+}
+
+.card, .itemsContainer, .cardBox, .cardScalable, .cardImageContainer{
+  touch-action: pan-y !important;
+}
+
+main.MuiBox-root{
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  -webkit-overflow-scrolling: touch;
+}
+
+:root{
+  --mq-guide-bg: #0b0f16;
+  --mq-guide-row-alt: #10151d;
+  --mq-guide-line: rgba(255,255,255,.08);
+  --mq-guide-gold: #d8a13a;
+  --mq-guide-gold-dim: rgba(216,161,58,.35);
+  --mq-guide-cell: #161b24;
+  --mq-guide-cell-hover: #1f2733;
+  --mq-guide-now-bg: #22314a;
+  --mq-guide-now-accent: #e5482f;
+}
+
+header.MuiAppBar-root a[href="#/"] .MuiButton-startIcon{
+  display: none !important;
+}
+
+#slides-container{ pointer-events: none !important; }
+#slides-container button, #slides-container a, #slides-container [role="button"],
+#slides-container .slide-controls, #slides-container .slide-controls *,
+#slides-container .buttons-container *, #slides-container [class*="button"],
+#slides-container [class*="dot"], #slides-container [class*="indicator"]{ pointer-events: auto !important; }
+
+:root{
+  --mq-g-bg:#141414; --mq-g-row:#181818; --mq-g-row-alt:#1c1c1c; --mq-g-cell:#232323; --mq-g-cell-hover:#333;
+  --mq-g-now:#2b2b2b; --mq-g-line:rgba(255,255,255,.07); --mq-g-red:#e50914; --mq-g-text:#fff; --mq-g-muted:#b3b3b3;
+  --mq-g-rowh:78px;
+}
+
+.MuiButton-root:not(.MuiIconButton-root), button.emby-button.raised, .btnPlay.raised, .btnShuffle.raised, .detailButton{ border-radius: 999px !important; }
+.MuiIconButton-root{ border-radius: 50% !important; }
+.MuiButton-root.MuiButton-contained{ padding: 6px 18px !important; min-width: 40px !important; font-weight: 700 !important; }
+
+.MuiAppBar-root .MuiToolbar-root a.MuiButton-root.MuiButton-sizeLarge[href="#/"],
+.MuiAppBar-root .MuiToolbar-root a.MuiButton-root.MuiButton-sizeLarge[href="#/"]:hover,
+.MuiAppBar-root .MuiToolbar-root a.MuiButton-root.MuiButton-sizeLarge[href="#/"]:focus-visible{
+  border-radius: 0 !important; overflow: visible !important; padding: 0 !important; margin-right: 18px !important;
+  width: 132px !important; min-width: 132px !important; height: 38px !important;
+  background-color: transparent !important; box-shadow: none !important;
+  background-size: contain !important; background-repeat: no-repeat !important; background-position: left center !important;
+}
+.MuiAppBar-root .MuiToolbar-root a.MuiButton-root.MuiButton-sizeLarge[href="#/"] .MuiButton-startIcon{ display: none !important; }
+
+.MuiAppBar-root .MuiToolbar-root a.MuiButton-root.MuiButton-sizeMedium .MuiButton-startIcon,
+.MuiAppBar-root .MuiToolbar-root a.MuiButton-root.MuiButton-sizeMedium .MuiButton-endIcon,
+.MuiAppBar-root .MuiToolbar-root a.MuiButton-root.MuiButton-sizeMedium .material-icons,
+.MuiAppBar-root .MuiToolbar-root a.MuiButton-root.MuiButton-sizeMedium svg{ display: none !important; }
+.MuiAppBar-root .MuiToolbar-root a.MuiButton-root.MuiButton-sizeMedium{
+  font-family: "Netflix Sans","Helvetica Neue",Helvetica,Arial,sans-serif !important;
+  font-size: 14px !important; font-weight: 500 !important; letter-spacing: 0 !important; text-transform: none !important;
+  padding: 5px 14px !important; min-height: 32px !important; height: 32px !important; line-height: 22px !important;
+  border-radius: 999px !important; margin: 0 2px !important;
+}
+.MuiAppBar-root .MuiToolbar-root a.MuiButton-root.MuiButton-sizeMedium[aria-current="page"],
+.MuiAppBar-root .MuiToolbar-root a.MuiButton-root.MuiButton-sizeMedium.mq-active,
+.MuiAppBar-root .MuiToolbar-root a.MuiButton-root.MuiButton-sizeMedium.Mui-selected{ font-weight: 700 !important; }
+#slides-container .arrow, #slides-container .arrow *, #slides-container .dots-container, #slides-container .dot, #slides-container .pause-button, #slides-container .mute-button, #slides-container .media-bar-settings-button{ pointer-events: auto !important; cursor: pointer; }
+#slides-container .arrow{ opacity: .85 !important; display: flex !important; }
+#slides-container .arrow:hover{ opacity: 1 !important; }
+
+.homePage .tabContent.pageTabContent{ pointer-events: none !important; }
+.homePage .tabContent.pageTabContent > *{ pointer-events: auto !important; }
+
+:root{
+  --mqg-bg:#141414; --mqg-rail:#181818; --mqg-cell:#242424; --mqg-cell-alt:#202020; --mqg-cell-hover:#333;
+  --mqg-line:#2c2c2c; --mqg-text:#fff; --mqg-muted:#b3b3b3; --mqg-red:#e50914;
+  --mqg-rail-w:156px; --mqg-row-h:92px; --mqg-head-h:44px;
+}
+.tvguide, .tvguide .guideVerticalScroller, .tvguide .programGrid, .tvguide .channelsContainer, .tvguide .timeslotHeaders, .tvguide .tvGuideHeader{ background:var(--mqg-bg) !important; background-image:none !important; }
+.tvguide{ color:var(--mqg-text); font-family:"Netflix Sans","Helvetica Neue",Helvetica,Arial,sans-serif !important; }
+
+.tvguide .tvGuideHeader{ border-bottom:1px solid var(--mqg-line); }
+.tvguide .guideDateTabs .emby-tab-button{ font-size:14px !important; font-weight:600 !important; color:var(--mqg-muted) !important; padding:10px 14px !important; margin:0 2px !important; background:transparent !important; border-radius:0 !important; text-transform:none !important; letter-spacing:0 !important; }
+.tvguide .guideDateTabs .emby-tab-button.emby-tab-button-active{ color:var(--mqg-text) !important; box-shadow:inset 0 -3px 0 var(--mqg-red) !important; }
+.tvguide .guide-headerTimeslots{ height:var(--mqg-head-h) !important; }
+.tvguide .guide-channelTimeslotHeader{ width:var(--mqg-rail-w) !important; min-width:var(--mqg-rail-w) !important; max-width:var(--mqg-rail-w) !important; background:var(--mqg-bg) !important; border-right:1px solid var(--mqg-line); display:flex; align-items:center; justify-content:center; }
+.tvguide .timeslotHeaders{ height:var(--mqg-head-h) !important; }
+.tvguide .timeslotHeader{ height:var(--mqg-head-h) !important; align-items:center !important; font-size:15px !important; font-weight:700 !important; color:var(--mqg-text) !important; padding-left:12px !important; border-left:1px solid var(--mqg-line); background:transparent !important; }
+.tvguide .timeslotHeader::after{ display:none !important; }
+
+.tvguide .channelsContainer{ width:var(--mqg-rail-w) !important; min-width:var(--mqg-rail-w) !important; max-width:var(--mqg-rail-w) !important; flex:0 0 var(--mqg-rail-w) !important; background:var(--mqg-rail) !important; border-right:1px solid var(--mqg-line); z-index:2; }
+.tvguide .guide-channelHeaderCell{
+  width:var(--mqg-rail-w) !important; min-width:0 !important; max-width:var(--mqg-rail-w) !important;
+  height:var(--mqg-row-h) !important; min-height:var(--mqg-row-h) !important; max-height:var(--mqg-row-h) !important;
+  margin:0 !important; padding:8px 10px !important; box-sizing:border-box !important;
+  display:flex !important; flex-direction:column !important; align-items:center !important; justify-content:center !important; gap:4px !important;
+  background:var(--mqg-rail) !important; border:0 !important; border-bottom:1px solid var(--mqg-line) !important; border-radius:0 !important;
+  color:var(--mqg-text) !important; position:relative !important; overflow:hidden !important;
+}
+.tvguide .guide-channelHeaderCell:hover, .tvguide .guide-channelHeaderCell:focus{ background:var(--mqg-cell-hover) !important; }
+.tvguide .guide-channelHeaderCell .guideChannelImage{ position:static !important; display:block !important; width:118px !important; height:48px !important; max-width:118px !important; max-height:48px !important; background-color:transparent !important; background-size:contain !important; background-position:center !important; background-repeat:no-repeat !important; margin:0 !important; transform:none !important; opacity:1 !important; }
+.tvguide .guide-channelHeaderCell .guideChannelNumber{ position:static !important; display:block !important; font-size:14px !important; font-weight:700 !important; color:var(--mqg-muted) !important; line-height:1 !important; margin:0 !important; padding:0 !important; background:transparent !important; width:auto !important; }
+.tvguide .guide-channelHeaderCell .guideChannelName{ display:none !important; }
+.tvguide .guide-channelHeaderCell.mq-noLogo .guideChannelName{ display:block !important; font-size:13px !important; font-weight:700 !important; text-align:center; }
+
+.tvguide .programGrid{ margin-left:0 !important; padding-left:0 !important; }
+.tvguide .channelPrograms{ height:var(--mqg-row-h) !important; min-height:var(--mqg-row-h) !important; max-height:var(--mqg-row-h) !important; margin:0 !important; background:var(--mqg-bg) !important; border-bottom:1px solid var(--mqg-line) !important; }
+.tvguide .programCell{
+  height:calc(var(--mqg-row-h) - 8px) !important; top:4px !important; margin:0 !important; box-sizing:border-box !important;
+  background:var(--mqg-cell) !important; border:0 !important; border-left:3px solid var(--mqg-bg) !important; border-radius:4px !important;
+  padding:0 !important; color:var(--mqg-text) !important; display:flex !important; align-items:center !important; overflow:hidden !important;
+}
+.tvguide .programCell:nth-child(even){ background:var(--mqg-cell-alt) !important; }
+.tvguide .programCell:hover, .tvguide .programCell:focus, .tvguide .programCell.programCell-active{ background:var(--mqg-cell-hover) !important; }
+.tvguide .programCell.mq-on-now{ border-left-color:var(--mqg-red) !important; }
+.tvguide .programCell .guideProgramName{ padding:0 14px !important; margin:0 !important; width:100% !important; text-align:left !important; }
+.tvguide .guideProgramNameText{ font-size:18px !important; font-weight:700 !important; line-height:1.2 !important; color:var(--mqg-text) !important; white-space:nowrap !important; overflow:hidden !important; text-overflow:ellipsis !important; text-align:left !important; }
+.tvguide .guideProgramSecondaryInfo{ font-size:13.5px !important; font-weight:500 !important; color:var(--mqg-muted) !important; margin-top:5px !important; white-space:nowrap !important; overflow:hidden !important; text-overflow:ellipsis !important; text-align:left !important; }
+.tvguide .guideProgramSecondaryInfo .mq-detail{ color:var(--mqg-muted) !important; }
+.tvguide .programCell .guideProgramIndicators, .tvguide .programCell .timerIcon, .tvguide .programCell .seriesTimerIcon{ font-size:14px !important; color:var(--mqg-red) !important; }
+
+.tvguide .programCell-sports{ border-left-color:#1db954 !important; }
+.tvguide .programCell-movie{ border-left-color:#f5c518 !important; }
+.tvguide .programCell-kids{ border-left-color:#4fb3ff !important; }
+.tvguide .programCell-news{ border-left-color:#ff8c1a !important; }
+.tvguide .programCell.mq-on-now{ border-left-color:var(--mqg-red) !important; }
+
+.tvguide .guideProgramIndicator{ display:inline-block !important; vertical-align:2px !important; margin-left:8px !important; padding:1px 6px !important; border-radius:3px !important; font-size:10.5px !important; font-weight:800 !important; letter-spacing:.06em !important; text-transform:uppercase !important; line-height:1.4 !important; background:#3a3a3a !important; color:#fff !important; }
+.tvguide .guideProgramIndicator.premiereTvProgram, .tvguide .guideProgramIndicator.newTvProgram{ background:var(--mqg-red) !important; }
+.tvguide .guideProgramIndicator.liveTvProgram{ background:#1db954 !important; color:#000 !important; }
+.tvguide .guide-programNameCaret{ color:var(--mqg-muted) !important; }
+
+.tvguide .mq-now-line{ position:absolute; top:0; bottom:0; width:2px; background:var(--mqg-red); z-index:3; pointer-events:none; box-shadow:0 0 6px rgba(229,9,20,.8); }
+.tvguide .mq-now-marker{ position:absolute; top:-2px; transform:translateX(-50%); background:var(--mqg-red); color:#fff; font-size:11px; font-weight:800; letter-spacing:.04em; padding:3px 7px; border-radius:3px; z-index:4; pointer-events:none; white-space:nowrap; }
+
+.tvguide .guideVerticalScroller{ padding-bottom:0 !important; }
+.tvguide .guideOptions{ display:none !important; }
+.tvguide .btnGuideViewSettings{ color:var(--mqg-muted) !important; }
+.tvguide .programCell .guideProgramName .material-icons{ font-size:16px !important; vertical-align:-3px; margin-right:4px; }
+.tvguide .channelsContainer::-webkit-scrollbar, .tvguide .programGrid::-webkit-scrollbar{ height:8px; }
+.tvguide .programGrid::-webkit-scrollbar-thumb{ background:#3a3a3a; border-radius:4px; }
+@media (max-width:800px){ :root{ --mqg-rail-w:104px; --mqg-row-h:78px; } .tvguide .guideProgramNameText{ font-size:15px !important; } .tvguide .guide-channelHeaderCell .guideChannelImage{ max-width:80px !important; max-height:36px !important; } }
+
+.MuiAppBar-root .MuiToolbar-root .MuiButton-root{ border-radius:999px !important; height:36px !important; min-height:36px !important; line-height:20px !important; padding:0 16px !important; box-sizing:border-box !important; white-space:nowrap !important; }
+.MuiAppBar-root .MuiToolbar-root .MuiButton-root.mq-icon-only{ width:36px !important; min-width:36px !important; padding:0 !important; border-radius:50% !important; justify-content:center !important; }
+.MuiAppBar-root .MuiToolbar-root .MuiButton-containedPrimary{ background:#e50914 !important; color:#fff !important; font-weight:700 !important; box-shadow:none !important; }
+.MuiAppBar-root .MuiToolbar-root .MuiButton-containedPrimary:hover{ background:#f6121d !important; }
+.MuiAppBar-root .MuiToolbar-root .MuiButton-root .material-icons{ font-size:20px !important; }
+.MuiAppBar-root .MuiToolbar-root .MuiIconButton-root{ width:40px !important; height:40px !important; border-radius:50% !important; }
+
+:root{ --mq-font-ui: Inter, "Netflix Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; --mq-font-guide: Roboto, "Roboto Condensed", "Helvetica Neue", Arial, sans-serif; }
+html, body, .skinBody, .MuiTypography-root, .MuiButton-root, .MuiTab-root, .MuiInputBase-root, .cardText, .sectionTitle, .listItemBodyText, .itemName, .detailPageContent, .emby-button, .emby-input, .emby-select, .emby-textarea, .headerTabs, .layout-desktop .pageTitle, .paper-icon-button-light, .emby-tab-button, .dialog, .actionSheet, .toast, .osdControls, .videoOsd, .mq-billboard, .slide .plot, .slide .genre, .slide .misc-info, .slide .featured-content, .slide .play-text{ font-family: var(--mq-font-ui) !important; }
+.material-icons, .material-icons *, [class*="material-icons"]{ font-family: "Material Icons" !important; }
+.tvguide, .tvguide *{ font-family: var(--mq-font-guide) !important; }
+.tvguide .material-icons{ font-family: "Material Icons" !important; }
+.tvguide .guideProgramNameText{ font-weight:700 !important; letter-spacing:-.01em; }
+.tvguide .guideChannelNumber{ font-family: var(--mq-font-guide) !important; font-weight:700 !important; font-size:15px !important; }
+h1, h2, h3, .sectionTitle{ font-weight:700 !important; letter-spacing:-.01em; }
+
+.MuiAppBar-root .MuiToolbar-root a.MuiButton-root[href="#/home?tab=1"]{ display:none !important; }
+.MuiAppBar-root .MuiToolbar-root a.MuiButton-root.MuiButton-sizeLarge[href="#/"]{ width:118px !important; min-width:118px !important; height:34px !important; margin:0 18px 0 10px !important; }
+
+#slides-container .video-backdrop, #slides-container .video-backdrop iframe, #slides-container .video-backdrop video, #slides-container iframe.video-backdrop, #slides-container video.video-backdrop{
+  position:absolute !important; top:50% !important; left:50% !important; transform:translate(-50%,-50%) !important;
+  width:max(100%, 177.78vh) !important; height:max(100%, 56.25vw) !important; min-width:100% !important; min-height:100% !important;
+  object-fit:cover !important; border:0 !important; pointer-events:none !important;
+}
+#slides-container .backdrop-container img.backdrop{ object-fit:cover !important; }
+
+main.MuiBox-root{ scrollbar-width: thin; scrollbar-color: #4a4a4a transparent; }
+main.MuiBox-root::-webkit-scrollbar{ width: 8px; height: 8px; }
+main.MuiBox-root::-webkit-scrollbar-track{ background: transparent; }
+main.MuiBox-root::-webkit-scrollbar-thumb{ background: #4a4a4a; border-radius: 4px; border: 2px solid transparent; background-clip: padding-box; }
+main.MuiBox-root::-webkit-scrollbar-thumb:hover{ background: #7a7a7a; background-clip: padding-box; }
+.emby-scroller, .scrollX, .itemsContainer.scrollX, .padded-left.padded-right.scrollX{ scrollbar-width: none !important; -ms-overflow-style: none; }
+.emby-scroller::-webkit-scrollbar, .scrollX::-webkit-scrollbar{ display: none !important; width: 0 !important; height: 0 !important; }
+
+.MuiAppBar-root{ background-color:#141414 !important; background-image:none !important; box-shadow:none !important; transition: background-color .35s ease !important; }
+body.mq-at-top .MuiAppBar-root{ background-color: transparent !important; background-image: linear-gradient(to bottom, rgba(0,0,0,.72) 0%, rgba(0,0,0,.35) 60%, rgba(0,0,0,0) 100%) !important; }
+body.mq-at-top .MuiAppBar-root .MuiToolbar-root{ background: transparent !important; }
+.MuiAppBar-root .MuiToolbar-root a.MuiButton-root.MuiButton-sizeMedium{ color:#e5e5e5 !important; }
+.MuiAppBar-root .MuiToolbar-root a.MuiButton-root.MuiButton-sizeMedium:hover{ color:#b3b3b3 !important; background: transparent !important; }
+.MuiAppBar-root .MuiToolbar-root a.MuiButton-root.MuiButton-sizeMedium[aria-current="page"], .MuiAppBar-root .MuiToolbar-root a.MuiButton-root.MuiButton-sizeMedium.mq-active{ color:#fff !important; background: transparent !important; }
+
+.MuiAppBar-root .MuiToolbar-root a.MuiButton-root[href="#/"],
+.MuiAppBar-root .MuiToolbar-root a.MuiButton-root[href="#/"]:link,
+.MuiAppBar-root .MuiToolbar-root a.MuiButton-root[href="#/"]:visited,
+.MuiAppBar-root .MuiToolbar-root a.MuiButton-root[href="#/"]:hover,
+.MuiAppBar-root .MuiToolbar-root a.MuiButton-root[href="#/"]:focus,
+.MuiAppBar-root .MuiToolbar-root a.MuiButton-root[href="#/"]:focus-visible,
+.MuiAppBar-root .MuiToolbar-root a.MuiButton-root[href="#/"]:active{
+
+  width: 132px !important;
+  min-width: 132px !important;
+  max-width: 132px !important;
+  height: 38px !important;
+  min-height: 38px !important;
+  max-height: 38px !important;
+  box-sizing: border-box !important;
+  padding: 0 !important;
+  margin: 0 18px 0 0 !important;
+  flex: 0 0 132px !important;
+
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: 0 !important;
+  outline: none !important;
+  border-radius: 0 !important;
+  overflow: visible !important;
+
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: left center !important;
+
+  transition: filter 160ms ease, opacity 160ms ease !important;
+  will-change: filter;
+  transform: none !important;
+}
+
+.MuiAppBar-root .MuiToolbar-root a.MuiButton-root[href="#/"]:hover{
+  filter: brightness(1.18) !important;
+  opacity: 1 !important;
+}
+.MuiAppBar-root .MuiToolbar-root a.MuiButton-root[href="#/"]:active{
+  filter: brightness(0.92) !important;
+}
+
+.MuiAppBar-root .MuiToolbar-root a.MuiButton-root[href="#/"]:focus-visible{
+  box-shadow: 0 0 0 2px rgba(255,255,255,.75) !important;
+  border-radius: 3px !important;
+}
+
+.MuiAppBar-root .MuiToolbar-root a.MuiButton-root[href="#/"] .MuiTouchRipple-root{
+  display: none !important;
+}
+.MuiAppBar-root .MuiToolbar-root a.MuiButton-root[href="#/"] .MuiButton-startIcon,
+.MuiAppBar-root .MuiToolbar-root a.MuiButton-root[href="#/"] .MuiButton-icon{
+  display: none !important;
+}
+
+.MuiAppBar-root .MuiToolbar-root a.MuiButton-root[href="#/"]{
+  color: transparent !important;
+  font-size: 0 !important;
+  text-decoration: none !important;
+}
+@media (prefers-reduced-motion: reduce){
+  .MuiAppBar-root .MuiToolbar-root a.MuiButton-root[href="#/"]{ transition: none !important; }
+}
+
+.headerBackButton,
+.headerButtonLeft.headerBackButton,
+button.headerBackButton{
+  display: none !important;
+}
+
+.MuiAppBar-root .MuiToolbar-root .mq-back-btn{
+  order: 0 !important;
+  flex: 0 0 38px !important;
+}
+
+.itemTags,
+.detailPageContent .itemTags,
+.itemTags + .verticalSection{ }
+.itemTags{ display: none !important; }
+
+.cardIndicators,
+.card .cardIndicators,
+.cardBox .cardIndicators,
+.indicator.countIndicator,
+.playedIndicator,
+.countIndicator,
+.cardIndicators .indicator{
+  display: none !important;
+}
+
+:root{
+  --mq-font: "Netflix Sans", "Inter", -apple-system, BlinkMacSystemFont,
+             "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+html, body,
+body h1, body h2, body h3, body h4, body h5, body h6,
+body p, body span, body div, body a, body li, body td, body th, body label,
+body input, body select, body textarea, body button,
+.MuiTypography-root, .MuiButton-root, .MuiInputBase-root, .MuiMenuItem-root,
+.cardText, .cardTextCentered, .sectionTitle, .itemName, .overview,
+.mediaInfoItem, .listItemBodyText, .emby-button, .paperList, .detailPageContent{
+  font-family: var(--mq-font) !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.material-icons, .material-icons-outlined, .material-symbols-outlined,
+[class*="material-icons"], .md-icon, i.md-icon,
+.MuiIcon-root, .MuiSvgIcon-root{
+  font-family: "Material Icons", "Material Symbols Outlined", "Material Icons Outlined" !important;
+}
+
+.sectionTitle, .itemName, h1.itemName, .detailPageContent h1,
+.MuiTypography-h1, .MuiTypography-h2, .MuiTypography-h3{
+  font-weight: 800 !important;
+  letter-spacing: -0.02em !important;
+}
+.overview, .itemOverview, .detailPageContent .overview{
+  font-weight: 400 !important;
+  letter-spacing: 0 !important;
+  line-height: 1.5 !important;
+}
+
+.mediaInfoItem, .mediaInfoOfficialRating, .mediaInfoCriticRating,
+.itemMiscInfo .mediaInfoItem, .listItemMediaInfo .mediaInfoItem{
+  display: inline-flex !important;
+  align-items: center !important;
+  height: 24px !important;
+  line-height: 24px !important;
+  padding: 0 10px !important;
+  margin: 0 6px 6px 0 !important;
+  border-radius: 4px !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  vertical-align: middle !important;
+  white-space: nowrap !important;
+  box-sizing: border-box !important;
+}
+.mediaInfoOfficialRating{
+  border: 1px solid rgba(255,255,255,.45) !important;
+  background: transparent !important;
+  border-radius: 3px !important;
+}
+
+.paging .btnListViewMode, .listPaging, .listPaging span,
+.paging span, .pageTitle + .listPaging{
+  height: 24px !important;
+  line-height: 24px !important;
+  padding: 0 10px !important;
+  border-radius: 4px !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  background: rgba(255,255,255,.12) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+}
+
+.detailButton, .button-flat.detailButton, .btnPlay.detailButton,
+.btnShuffle.detailButton, .btnPlaystate.detailButton{
+  width: 44px !important;
+  min-width: 44px !important;
+  height: 44px !important;
+  padding: 0 !important;
+  border-radius: 50% !important;
+  margin: 0 6px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: background-color 150ms ease !important;
+}
+.detailButton:hover{ background: rgba(255,255,255,.16) !important; }
+
+.MuiAppBar-root .MuiToolbar-root a.MuiButton-root.MuiButton-sizeMedium{
+  height: 32px !important;
+  min-height: 32px !important;
+  line-height: 32px !important;
+  padding: 0 14px !important;
+  border-radius: 999px !important;
+  transition: color 150ms ease, background-color 150ms ease !important;
+}
+
+.itemMiscInfo .mediaInfoItem.mediaInfoTimeRemaining,
+.mediaInfoItem[class*="TimeRemaining"]{
+  display: none !important;
+}
+
+:root{
+  --mq-nav-h: 80px;
+  --mq-gutter: 36px;
+  --mq-link: rgba(255,255,255,.7);
+  --mq-link-on: #fff;
+  --mq-pill: rgba(255,255,255,.2);
+  --mq-nav-solid: #000;
+}
+
+.MuiAppBar-root{
+  height: var(--mq-nav-h) !important;
+  min-height: var(--mq-nav-h) !important;
+  box-shadow: none !important;
+  border-bottom: 0 !important;
+  background-color: transparent !important;
+  background-image: linear-gradient(rgba(0,0,0,.8) 0%, rgba(0,0,0,0) 100%) !important;
+  transition: background-color .4s cubic-bezier(0,0,1,1) !important;
+}
+.MuiAppBar-root.mq-scrolled,
+body.mq-scrolled .MuiAppBar-root{
+  background-color: var(--mq-nav-solid) !important;
+}
+.MuiAppBar-root .MuiToolbar-root{
+  height: var(--mq-nav-h) !important;
+  min-height: var(--mq-nav-h) !important;
+  padding: 0 var(--mq-gutter) !important;
+  gap: 0 !important;
+}
+
+.MuiAppBar-root .MuiToolbar-root a.MuiButton-root.MuiButton-sizeLarge[href="#/"],
+.MuiAppBar-root .MuiToolbar-root a.MuiButton-root.MuiButton-sizeLarge[href="#/"]:hover,
+.MuiAppBar-root .MuiToolbar-root a.MuiButton-root.MuiButton-sizeLarge[href="#/"]:focus,
+.MuiAppBar-root .MuiToolbar-root a.MuiButton-root.MuiButton-sizeLarge[href="#/"]:active{
+  width: 89px !important;
+  min-width: 89px !important;
+  max-width: 89px !important;
+  height: 22px !important;
+  min-height: 22px !important;
+  max-height: 22px !important;
+  flex: 0 0 89px !important;
+  margin: 0 12px 0 0 !important;
+}
+
+.MuiAppBar-root .MuiToolbar-root a.MuiButton-root.MuiButton-sizeMedium{
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  letter-spacing: normal !important;
+  text-transform: none !important;
+  color: var(--mq-link) !important;
+  background-color: transparent !important;
+  height: 41px !important;
+  min-height: 41px !important;
+  padding: 10px 16px !important;
+  margin: 0 3px !important;
+  border-radius: 24px !important;
+  min-width: 0 !important;
+  line-height: 21px !important;
+  transition: color .25s ease, background-color .25s ease !important;
+}
+.MuiAppBar-root .MuiToolbar-root a.MuiButton-root.MuiButton-sizeMedium:hover{
+  color: var(--mq-link-on) !important;
+  background-color: transparent !important;
+}
+
+.MuiAppBar-root .MuiToolbar-root a.MuiButton-root.MuiButton-sizeMedium.mq-nav-current,
+.MuiAppBar-root .MuiToolbar-root a.MuiButton-root.MuiButton-sizeMedium[aria-current="page"],
+.MuiAppBar-root .MuiToolbar-root a.MuiButton-root.MuiButton-sizeMedium.Mui-selected{
+  color: var(--mq-link-on) !important;
+  background-color: var(--mq-pill) !important;
+  font-weight: 400 !important;
+}
+.MuiAppBar-root .MuiToolbar-root a.MuiButton-root.MuiButton-sizeMedium.mq-nav-current:hover{
+  background-color: rgba(255,255,255,.28) !important;
+}
+
+.MuiAppBar-root .MuiToolbar-root .mq-back-btn{
+  width: 41px !important; height: 41px !important;
+  margin: 0 6px 0 0 !important;
+  background: rgba(255,255,255,.10) !important;
+}
+.MuiAppBar-root .MuiToolbar-root .mq-back-btn:hover{ background: rgba(255,255,255,.2) !important; }
+.MuiAppBar-root .MuiToolbar-root .mq-back-btn .material-icons{ font-size: 22px !important; }
+
+.MuiAppBar-root .MuiToolbar-root > .MuiBox-root:last-child{ margin-left: auto !important; }
+.MuiAppBar-root .MuiToolbar-root .MuiIconButton-root{
+  width: 40px !important; height: 40px !important;
+  padding: 8px !important;
+  color: #fff !important;
+  transition: color .2s ease !important;
+}
+.MuiAppBar-root .MuiToolbar-root .MuiIconButton-root:hover{
+  color: rgba(255,255,255,.7) !important;
+  background: transparent !important;
+}
+.MuiAppBar-root .MuiToolbar-root .MuiIconButton-root .material-icons,
+.MuiAppBar-root .MuiToolbar-root .MuiIconButton-root svg{ font-size: 24px !important; }
+
+.pageTitle, h3.pageTitle{
+  font-size: 32px !important;
+  font-weight: 700 !important;
+  letter-spacing: -.01em !important;
+}
+
+.cardOverlayButton, .cardOverlayButton-hover,
+.cardOverlayContainer .cardOverlayButton{
+  width: 38px !important;
+  height: 38px !important;
+  min-width: 38px !important;
+  padding: 0 !important;
+  border-radius: 50% !important;
+  background: rgba(42,42,42,.6) !important;
+  border: 2px solid rgba(255,255,255,.5) !important;
+  color: #fff !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: background-color .2s cubic-bezier(0.4,0,0.68,0.06),
+              border-color .2s cubic-bezier(0.4,0,0.68,0.06) !important;
+}
+.cardOverlayButton:hover{
+  background: rgba(42,42,42,.85) !important;
+  border-color: #fff !important;
+}
+
+.cardOverlayButton.cardOverlayButton-br, .cardOverlayButton[data-action="play"],
+.cardOverlayButton.btnPlay, .cardOverlayFab, .cardOverlayFab-primary{
+  width: 34px !important;
+  height: 34px !important;
+  background: #fff !important;
+  border: 0 !important;
+  color: #000 !important;
+}
+.cardOverlayButton.cardOverlayFab-primary:hover{ background: rgba(255,255,255,.8) !important; }
+
+.cardOverlayButton .material-icons,
+.detailButton .material-icons,
+.MuiAppBar-root .MuiToolbar-root .MuiIconButton-root .material-icons{
+  position: relative;
+}
+.mq-icon-play::before, .mq-icon-plus::before, .mq-icon-chevron::before,
+.mq-icon-close::before, .mq-icon-search::before{
+  content: "";
+  display: inline-block;
+  width: 1em; height: 1em;
+  background-color: currentColor;
+  -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+  -webkit-mask-position: center;  mask-position: center;
+  -webkit-mask-size: contain;     mask-size: contain;
+}
+.mq-icon-play::before   { -webkit-mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M5%202.7a1%201%200%200%201%201.48-.88l16.93%209.3a1%201%200%200%201%200%201.76l-16.93%209.3A1%201%200%200%201%205%2021.31z%22%2F%3E%3C%2Fsvg%3E");   mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M5%202.7a1%201%200%200%201%201.48-.88l16.93%209.3a1%201%200%200%201%200%201.76l-16.93%209.3A1%201%200%200%201%205%2021.31z%22%2F%3E%3C%2Fsvg%3E");   }
+.mq-icon-plus::before   { -webkit-mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M11%2011V2h2v9h9v2h-9v9h-2v-9H2v-2z%22%2F%3E%3C%2Fsvg%3E");   mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M11%2011V2h2v9h9v2h-9v9h-2v-9H2v-2z%22%2F%3E%3C%2Fsvg%3E");   }
+.mq-icon-chevron::before{ -webkit-mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22m12%2015.586%207.293-7.293%201.414%201.414-8%208a1%201%200%200%201-1.414%200l-8-8%201.414-1.414z%22%2F%3E%3C%2Fsvg%3E");   mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22m12%2015.586%207.293-7.293%201.414%201.414-8%208a1%201%200%200%201-1.414%200l-8-8%201.414-1.414z%22%2F%3E%3C%2Fsvg%3E");   }
+.mq-icon-close::before  { -webkit-mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M10.586%2012%202.293%203.707l1.414-1.414L12%2010.586l8.293-8.293%201.414%201.414L13.414%2012l8.293%208.293-1.414%201.414L12%2013.414l-8.293%208.293-1.414-1.414z%22%2F%3E%3C%2Fsvg%3E");  mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M10.586%2012%202.293%203.707l1.414-1.414L12%2010.586l8.293-8.293%201.414%201.414L13.414%2012l8.293%208.293-1.414%201.414L12%2013.414l-8.293%208.293-1.414-1.414z%22%2F%3E%3C%2Fsvg%3E");  }
+.mq-icon-search::before { -webkit-mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M17%2010a7%207%200%201%201-14%200%207%207%200%200%201%2014%200m-1.38%207.03a9%209%200%201%201%201.41-1.41l5.68%205.67-1.42%201.42z%22%2F%3E%3C%2Fsvg%3E"); mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M17%2010a7%207%200%201%201-14%200%207%207%200%200%201%2014%200m-1.38%207.03a9%209%200%201%201%201.41-1.41l5.68%205.67-1.42%201.42z%22%2F%3E%3C%2Fsvg%3E"); }
+
+.btnPlay .material-icons, .cardOverlayButton .material-icons.play_arrow,
+.detailButton .material-icons.play_arrow{
+  font-size: 0 !important;
+}
+.btnPlay .material-icons::before, .cardOverlayButton .material-icons.play_arrow::before,
+.detailButton .material-icons.play_arrow::before{
+  content: "";
+  display: inline-block;
+  width: 24px; height: 24px;
+  background-color: currentColor;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M5%202.7a1%201%200%200%201%201.48-.88l16.93%209.3a1%201%200%200%201%200%201.76l-16.93%209.3A1%201%200%200%201%205%2021.31z%22%2F%3E%3C%2Fsvg%3E"); mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M5%202.7a1%201%200%200%201%201.48-.88l16.93%209.3a1%201%200%200%201%200%201.76l-16.93%209.3A1%201%200%200%201%205%2021.31z%22%2F%3E%3C%2Fsvg%3E");
+  -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+  -webkit-mask-position: center;  mask-position: center;
+  -webkit-mask-size: contain;     mask-size: contain;
+}
+
+@font-face{
+  font-family: 'Netflix Sans';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(/web/mq/netflix-sans-300.woff2) format('woff2');
+}
+@font-face{
+  font-family: 'Netflix Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/web/mq/netflix-sans-400.woff2) format('woff2');
+}
+@font-face{
+  font-family: 'Netflix Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/web/mq/netflix-sans-500.woff2) format('woff2');
+}
+@font-face{
+  font-family: 'Netflix Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/web/mq/netflix-sans-700.woff2) format('woff2');
+}
+
+:root{
+  --mq-font: 'Netflix Sans', 'Inter', -apple-system, BlinkMacSystemFont,
+             'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.sectionTitle, .homeSectionTitle, h2.sectionTitle{ font-weight: 500 !important; }
+.MuiAppBar-root .MuiToolbar-root a.MuiButton-root.MuiButton-sizeMedium{ font-weight: 400 !important; }
+.btnPlay, .btnShuffle, .detailButton{ font-weight: 500 !important; }
+
+:root{
+  --mq-bg: #141414;
+  --mq-card-radius: 8px;
+  --mq-card-gap: 8px;
+  --mq-ease: cubic-bezier(0.4,0,0.68,0.06);
+}
+
+html, body, .mainAnimatedPages, .skinBody, #reactRoot{
+  background-color: var(--mq-bg) !important;
+}
+
+.sectionTitle, .verticalSection > .sectionTitleContainer .sectionTitle,
+.homeSectionTitle, h2.sectionTitle{
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  color: #fff !important;
+  letter-spacing: normal !important;
+  margin: 0 8px 8px 0 !important;
+  text-transform: none !important;
+}
+
+.verticalSection:not(.mq-billboard),
+.homePage .verticalSection:not(.mq-billboard),
+.homeSectionsContainer .verticalSection:not(.mq-billboard){
+  padding-left: 36px !important;
+  padding-right: 36px !important;
+}
+
+.mq-billboard.verticalSection{
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+.mq-billboard.verticalSection > *{ border-radius: inherit; }
+.verticalSection .sectionTitleContainer, .verticalSection > .sectionTitle{
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+.verticalSection .emby-scroller,
+.verticalSection .scrollSlider,
+.verticalSection .itemsContainer.padded-left,
+.verticalSection .itemsContainer.padded-right{
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+
+  margin-left: -9.5px !important;
+}
+
+.card .cardBox, .cardBox, .card .cardImageContainer, .cardImageContainer,
+.card .cardScalable, .cardOverlayContainer{
+  border-radius: var(--mq-card-radius) !important;
+}
+.card{ padding: 0 calc(var(--mq-card-gap) / 2) !important; }
+.itemsContainer{ margin: 0 calc(var(--mq-card-gap) / -2) !important; }
+
+.btnPlay.detailButton, .button-flat.btnPlay, .detailPagePrimaryContainer .btnPlay,
+.mq-play-all, .btnPlayAll{
+  height: 48px !important;
+  min-height: 48px !important;
+  padding: 8px 20px !important;
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  color: #000 !important;
+  background: #fff !important;
+  border-radius: 9999px !important;
+  border: 0 !important;
+  margin-right: 12px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  width: auto !important;
+  min-width: 0 !important;
+  transition: background-color .25s var(--mq-ease) !important;
+}
+.btnPlay.detailButton:hover, .button-flat.btnPlay:hover, .mq-play-all:hover, .btnPlayAll:hover{
+  background: rgba(255,255,255,.75) !important;
+  color: #000 !important;
+}
+.btnPlay.detailButton .material-icons, .mq-play-all .material-icons, .btnPlayAll .material-icons{
+  color: #000 !important; font-size: 24px !important;
+}
+
+.btnShuffle.detailButton, .btnMoreInfo, .mq-more-info{
+  height: 48px !important;
+  min-height: 48px !important;
+  padding: 8px 20px !important;
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  color: #fff !important;
+  background: rgba(128,128,128,.4) !important;
+  border-radius: 9999px !important;
+  border: 0 !important;
+  width: auto !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  transition: background-color .25s var(--mq-ease) !important;
+}
+.btnShuffle.detailButton:hover, .btnMoreInfo:hover, .mq-more-info:hover{
+  background: rgba(128,128,128,.6) !important;
+}
+#slides-container .slide-buttons, #slides-container .button-container, .detailPagePrimaryContainer .mainDetailButtons{
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  flex-wrap: wrap !important;
+}
+#slides-container .detailButton, #slides-container .watchlist-button{
+  margin: 0 !important;
+  flex: 0 0 auto !important;
+}
+
+#slides-container .slide-overview, .mq-hero-overview, .billboard-synopsis{
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  color: #fff !important;
+  max-width: 430px !important;
+  line-height: 1.4 !important;
+}
+
+@media (max-width: 700px){
+  :root{ --mq-gutter: 16px; }
+  .verticalSection:not(.mq-billboard){ padding-left: 16px !important; padding-right: 16px !important; }
+  .MuiAppBar-root .MuiToolbar-root{ padding: 0 16px !important; }
+  .MuiAppBar-root .MuiToolbar-root a.MuiButton-root.MuiButton-sizeLarge[href="#/"]{
+    width: 74px !important; min-width: 74px !important; max-width: 74px !important;
+    height: 18px !important; min-height: 18px !important; max-height: 18px !important;
+    flex: 0 0 74px !important; margin-right: 8px !important;
+  }
+  .MuiAppBar-root .MuiToolbar-root a.MuiButton-root.MuiButton-sizeMedium{
+    font-size: 14px !important; padding: 8px 10px !important; margin: 0 1px !important;
+  }
+  .mq-billboard.verticalSection{ margin-left: 16px !important; margin-right: 16px !important; }
+}
+
+:root{
+  --nf-row-ease: cubic-bezier(.5, 0, .1, 1);
+  --nf-row-dur: .54s;
+  --nf-slide-dur: .75s;
+
+  --nf-card-pad: 4px;
+  --nf-card-radius: 8px;
+}
+
+.card{
+  box-sizing: border-box !important;
+  padding: 0 var(--nf-card-pad) !important;
+}
+.card *, .card *::before, .card *::after{ box-sizing: border-box; }
+
+.card .cardBox{ margin-left: 0 !important; margin-right: 0 !important; }
+.itemsContainer{ margin-left: 0 !important; margin-right: 0 !important; }
+
+.card .cardBox, .cardBox, .card .cardImageContainer, .cardImageContainer,
+.card .cardScalable, .cardOverlayContainer{
+  border-radius: var(--nf-card-radius) !important;
+}
+
+.card{ z-index: 1; }
+.card .cardBox{
+  transition: transform var(--nf-row-dur) var(--nf-row-ease),
+              box-shadow var(--nf-row-dur) var(--nf-row-ease) !important;
+}
+
+.emby-scroller .scrollSlider, .itemsContainer.scrollSlider{
+  transition: transform var(--nf-slide-dur) var(--nf-row-ease) !important;
+}
+
+@keyframes billboardScaleFadeIn{ 0%{ transform: scale(1.15); } 100%{ transform: scale(1); } }
+@keyframes billboardOpacityFadeIn{ 0%{ opacity: 0; } 100%{ opacity: 1; } }
+#slides-container .slide.active .slide-image,
+#slides-container .slide.active img,
+.itemBackdrop{
+  animation: billboardScaleFadeIn 1.2s var(--nf-row-ease) both,
+             billboardOpacityFadeIn .8s ease both;
+}
+
+@keyframes popInAnimation{ 0%{ opacity: 0; transform: scale(0); } 100%{ opacity: 1; transform: scale(1); } }
+.card:hover .cardOverlayButton{
+  animation: popInAnimation .18s var(--nf-row-ease) both;
+}
+
+@media (prefers-reduced-motion: reduce){
+  #slides-container .slide.active .slide-image, .itemBackdrop,
+  .card:hover .cardOverlayButton{ animation: none !important; }
+}
+
+.MuiAppBar-root .MuiToolbar-root a.MuiButton-root.MuiButton-sizeLarge[href="#/"]{
+  align-self: center !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  position: relative !important;
+  top: 0 !important;
+}
+.MuiAppBar-root .MuiToolbar-root{ align-items: center !important; }
+
+.MuiAppBar-root .MuiToolbar-root a.mq-home-tab,
+.MuiAppBar-root .MuiToolbar-root a.mq-home-tab:hover,
+.MuiAppBar-root .MuiToolbar-root a.mq-home-tab:visited{
+  text-decoration: none !important;
+  border-bottom: 0 !important;
+}
+
+.MuiAppBar-root .MuiToolbar-root button[title="SyncPlay" i],
+.MuiAppBar-root .MuiToolbar-root button[aria-label="SyncPlay" i],
+.MuiAppBar-root .MuiToolbar-root .btnSyncPlay,
+button.headerSyncButton, .headerSyncButton{
+  display: none !important;
+}
+
+button.MuiButtonBase-root.MuiButton-root.MuiButtonGroup-grouped[title="Play All" i],
+button.MuiButtonBase-root.MuiButton-root.MuiButtonGroup-firstButton,
+.MuiButtonGroup-root button.MuiButtonGroup-firstButton{
+  border-radius: 9999px !important;
+  border-top-left-radius: 9999px !important;
+  border-bottom-left-radius: 9999px !important;
+  border-top-right-radius: 9999px !important;
+  border-bottom-right-radius: 9999px !important;
+}
+button.MuiButtonBase-root.MuiButton-root.MuiButtonGroup-grouped[title="Shuffle" i],
+button.MuiButtonBase-root.MuiButton-root.MuiButtonGroup-lastButton,
+.MuiButtonGroup-root button.MuiButtonGroup-lastButton{
+  border-radius: 50% !important;
+  border-top-left-radius: 50% !important;
+  border-bottom-left-radius: 50% !important;
+  width: 36px !important; min-width: 36px !important; flex: 0 0 36px !important;
+  padding: 0 !important;
+}
+
+.MuiButtonGroup-root{
+  gap: 10px !important;
+  box-shadow: none !important;
+}
+.MuiButtonGroup-root > button{ margin-left: 0 !important; margin-right: 0 !important; }
+
+.btnPlayAll, .mq-play-all, button.btnPlayAll,
+[class*="playAll"], [title="Play All" i]{
+  border-radius: 9999px !important;
+  height: 36px !important;
+  min-height: 36px !important;
+  padding: 0 18px !important;
+  width: auto !important;
+  min-width: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  margin-right: 10px !important;
+  font-weight: 500 !important;
+  white-space: nowrap !important;
+}
+
+.btnShuffle, button.btnShuffle, [title="Shuffle" i]{
+  width: 36px !important;
+  min-width: 36px !important;
+  height: 36px !important;
+  padding: 0 !important;
+  border-radius: 50% !important;
+  flex: 0 0 36px !important;
+  margin-right: 10px !important;
+}
+
+.pageTitleContainer, .sectionTitleContainer, .libraryPage .flex-grow.flex{
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  flex-wrap: wrap !important;
+}
+
+.card:hover, .card.card-hoverable:hover, .card-hoverable:hover,
+.card:hover .cardScalable, .card:hover .cardBox, .card:hover .cardImageContainer,
+.card:hover .cardOverlayContainer, .card:hover .cardPadder{
+  transform: none !important;
+  scale: none !important;
+}
+.card, .card .cardScalable, .card .cardImageContainer, .card .cardPadder{
+  transform: none !important;
+}
+
+.card:hover .cardImageContainer{
+  filter: none !important;
+  box-shadow: none !important;
+}
+.card .cardBox{
+  overflow: visible !important;
+  transition: box-shadow .25s cubic-bezier(.4,0,.68,.06) !important;
+}
+.card:hover .cardBox{
+  box-shadow: 0 8px 24px rgba(0,0,0,.75) !important;
+}
+
+.card .cardImageContainer::after{ content: none !important; }
+.card .cardOverlayContainer{ background: transparent !important; }
+
+.card, .cardBox{
+  overflow: visible !important;
+}
+
+.cardOverlayButton{
+  transition: background-color .25s cubic-bezier(.4,0,.68,.06),
+              border-color .25s cubic-bezier(.4,0,.68,.06) !important;
+}
+
+.detailPageContent .verticalSection,
+.detailPageContent .emby-scroller-container,
+.verticalSection.emby-scroller-container{
+  margin-left: 0 !important;
+  padding-left: 36px !important;
+  padding-right: 36px !important;
+  width: auto !important;
+  max-width: none !important;
+}
+.detailPageContent .verticalSection > .sectionTitle,
+.detailPageContent .sectionTitle{
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+.detailPageContent .itemsContainer, .detailPageContent .scrollSlider{
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+:root{ --mq-hover-scale: 1 !important; }
+
+:root{
+  --mq-r: 8px;
+  --mq-ease: cubic-bezier(.4, 0, .68, .06);
+  --mq-ease-row: cubic-bezier(.5, 0, .1, 1);
+}
+
+.card .cardBox,
+.card .cardScalable,
+.card .cardPadder,
+.card .cardImageContainer,
+.card .cardOverlayContainer,
+.card .cardImageContainer img,
+.card .cardImage,
+.card img.cardImageIcon,
+.cardImageContainer, .cardOverlayContainer,
+.itemBackdrop, .detailImageContainer img, .detailImage,
+.listItemImage, .personImage, .chapterThumb{
+  border-radius: var(--mq-r) !important;
+}
+
+.card .cardScalable,
+.card .cardPadder,
+.card .cardImageContainer{
+  overflow: hidden !important;
+}
+
+.card .cardImageContainer{
+  background-color: #23232a !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+.card .cardImageContainer img{ display: block !important; }
+
+.card, .card .cardBox{ overflow: visible !important; }
+
+.card{ position: relative !important; z-index: 1; box-sizing: border-box !important; }
+.card, .card *{ box-sizing: border-box; }
+.card:hover{ z-index: 40 !important; }
+.card .cardBox{
+  transition: box-shadow .25s var(--mq-ease) !important;
+}
+.card:hover .cardBox{
+  box-shadow: 0 8px 26px rgba(0,0,0,.8) !important;
+}
+
+.card, .card:hover,
+.card .cardScalable, .card:hover .cardScalable,
+.card .cardBox, .card:hover .cardBox,
+.card .cardPadder, .card:hover .cardPadder,
+.card .cardImageContainer, .card:hover .cardImageContainer,
+.card .cardOverlayContainer, .card:hover .cardOverlayContainer{
+  transform: none !important;
+}
+
+.card .cardImageContainer::after{ content: none !important; }
+.card .cardOverlayContainer{ background: transparent !important; }
+.card .cardOverlayContainer .cardImageContainer{
+  background: transparent !important; background-image: none !important;
+}
+.card .cardOverlayContainer .cardImageContainer > img{ display: none !important; }
+
+.card .cardText, .card .cardTextCentered, .card .cardText-secondary{
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  max-width: 100% !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+.cardOverlayContainer{
+  opacity: 0;
+  transition: opacity .2s var(--mq-ease) !important;
+}
+.card:hover .cardOverlayContainer{ opacity: 1; }
+.cardOverlayButton{
+  width: 38px !important; height: 38px !important; min-width: 38px !important;
+  padding: 0 !important;
+  border-radius: 50% !important;
+  background: rgba(42,42,42,.6) !important;
+  border: 2px solid rgba(255,255,255,.5) !important;
+  color: #fff !important;
+  display: inline-flex !important; align-items: center !important; justify-content: center !important;
+  animation: none !important;
+  transition: background-color .2s var(--mq-ease), border-color .2s var(--mq-ease) !important;
+}
+.cardOverlayButton:hover{ background: rgba(42,42,42,.9) !important; border-color: #fff !important; }
+
+.cardOverlayFab-primary, .cardOverlayButton.cardOverlayFab-primary{
+  width: 44px !important; height: 44px !important;
+  background: #fff !important;
+  border: 0 !important;
+  color: #000 !important;
+  box-shadow: 0 2px 10px rgba(0,0,0,.5) !important;
+  transition: background-color .2s var(--mq-ease), box-shadow .2s var(--mq-ease) !important;
+}
+.cardOverlayFab-primary:hover{
+  background: rgba(255,255,255,.85) !important;
+  box-shadow: 0 4px 16px rgba(0,0,0,.6) !important;
+}
+.cardOverlayFab-primary .material-icons{
+  font-size: 0 !important; line-height: 0 !important;
+  width: 20px !important; height: 20px !important;
+  display: flex !important; align-items: center !important; justify-content: center !important;
+  overflow: visible !important;
+}
+.cardOverlayFab-primary .material-icons::before{
+  content: "";
+  display: block;
+  width: 20px; height: 20px;
+  margin-left: 2px;
+  background-color: currentColor;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M5%202.7a1%201%200%200%201%201.48-.88l16.93%209.3a1%201%200%200%201%200%201.76l-16.93%209.3A1%201%200%200%201%205%2021.31z%22%2F%3E%3C%2Fsvg%3E"); mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M5%202.7a1%201%200%200%201%201.48-.88l16.93%209.3a1%201%200%200%201%200%201.76l-16.93%209.3A1%201%200%200%201%205%2021.31z%22%2F%3E%3C%2Fsvg%3E");
+  -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+  -webkit-mask-position: center; mask-position: center;
+  -webkit-mask-size: contain; mask-size: contain;
+}
+
+.detailButton.btnPlay, button.btnPlay.detailButton{
+  width: 48px !important;
+  min-width: 48px !important;
+  height: 48px !important;
+  padding: 0 !important;
+  border-radius: 50% !important;
+  background: #fff !important;
+  color: #000 !important;
+  margin-right: 12px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: background-color .2s var(--mq-ease), transform .2s var(--mq-ease) !important;
+}
+.detailButton.btnPlay:hover, button.btnPlay.detailButton:hover{
+  background: rgba(255,255,255,.82) !important;
+}
+
+.detailButton.btnPlay .material-icons{
+  font-size: 0 !important; line-height: 0 !important;
+  width: 22px !important; height: 22px !important;
+  display: flex !important; align-items: center !important; justify-content: center !important;
+  overflow: visible !important;
+}
+.detailButton.btnPlay .material-icons::before{
+  content: "";
+  display: block;
+  width: 22px; height: 22px;
+  margin-left: 2px;
+  background-color: currentColor;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M5%202.7a1%201%200%200%201%201.48-.88l16.93%209.3a1%201%200%200%201%200%201.76l-16.93%209.3A1%201%200%200%201%205%2021.31z%22%2F%3E%3C%2Fsvg%3E"); mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M5%202.7a1%201%200%200%201%201.48-.88l16.93%209.3a1%201%200%200%201%200%201.76l-16.93%209.3A1%201%200%200%201%205%2021.31z%22%2F%3E%3C%2Fsvg%3E");
+  -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+  -webkit-mask-position: center; mask-position: center;
+  -webkit-mask-size: contain; mask-size: contain;
+}
+
+.detailButton:not(.btnPlay){
+  width: 42px !important; min-width: 42px !important; height: 42px !important;
+  padding: 0 !important; border-radius: 50% !important;
+  margin: 0 4px !important;
+  transition: background-color .2s var(--mq-ease) !important;
+}
+.detailButton:not(.btnPlay):hover{ background: rgba(255,255,255,.16) !important; }
+
+.MuiToolbar-root.MuiToolbar-dense{
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 45 !important;
+  background-color: #141414 !important;
+  transition: background-color .4s cubic-bezier(0,0,1,1) !important;
+  padding-top: 6px !important;
+  padding-bottom: 6px !important;
+}
+body.mq-scrolled .MuiToolbar-root.MuiToolbar-dense,
+.mq-scrolled .MuiToolbar-root.MuiToolbar-dense{
+  background-color: #000 !important;
+}
+
+.MuiToolbar-dense .MuiButton-root:not(.MuiButtonGroup-grouped){
+  border-radius: 6px !important;
+  min-height: 34px !important;
+  transition: background-color .2s var(--mq-ease) !important;
+}
+.MuiToolbar-dense .MuiButton-root:not(.MuiButtonGroup-grouped):hover{
+  background-color: rgba(255,255,255,.12) !important;
+  border-radius: 6px !important;
+}
+
+.MuiAppBar-root .MuiToolbar-regular button.MuiButtonBase-root,
+.MuiAppBar-root .MuiToolbar-regular a.MuiButtonBase-root:not(.MuiButton-sizeMedium):not(.MuiButton-sizeLarge){
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 40px !important;
+  padding: 0 !important;
+  border-radius: 50% !important;
+  background-color: transparent !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: background-color .2s var(--mq-ease), color .2s var(--mq-ease) !important;
+}
+.MuiAppBar-root .MuiToolbar-regular button.MuiButtonBase-root:hover{
+  background-color: rgba(255,255,255,.14) !important;
+  border-radius: 50% !important;
+}
+
+.MuiAppBar-root .MuiToolbar-regular .MuiAvatar-root,
+.MuiAppBar-root .MuiToolbar-regular button.mq-avatar-btn,
+.MuiAppBar-root .MuiToolbar-regular button.mq-avatar-btn{
+  width: auto !important;
+  min-width: 40px !important;
+  border-radius: 6px !important;
+}
+.MuiAppBar-root .MuiToolbar-regular button.mq-avatar-btn:hover{ border-radius: 6px !important; }
+.MuiAppBar-root .MuiToolbar-regular .MuiAvatar-root{ border-radius: 50% !important; }
+
+.MuiAppBar-root{
+  background-color: transparent !important;
+  background-image: linear-gradient(rgba(0,0,0,.8) 0%, rgba(0,0,0,0) 100%) !important;
+  transition: background-color .4s cubic-bezier(0,0,1,1), backdrop-filter .4s ease !important;
+}
+body.mq-scrolled .MuiAppBar-root,
+.mq-scrolled .MuiAppBar-root,
+.MuiAppBar-root.mq-scrolled{
+  background-color: rgba(0,0,0,.92) !important;
+  background-image: none !important;
+  -webkit-backdrop-filter: blur(12px) saturate(140%) !important;
+  backdrop-filter: blur(12px) saturate(140%) !important;
+}
+
+.libraryPage .pageTitleContainer, .pageTitleContainer,
+.libraryPage > .padded-top, .detailPageWrapperContainer > .pageTitleContainer{
+  background: transparent !important;
+  transition: background-color .4s cubic-bezier(0,0,1,1) !important;
+}
+body.mq-scrolled .libraryPage .pageTitleContainer,
+.mq-scrolled .pageTitleContainer{ background: #000 !important; }
+
+.pageTitleContainer .headerSelect, .pageTitle .headerSelect,
+button.pageTitleButton, .pageTitleContainer button.MuiButton-root,
+.libraryPage .pageTitle + button, .pageTitleWithMenu{
+  border-radius: 6px !important;
+  height: 36px !important;
+  padding: 0 12px !important;
+  background: transparent !important;
+  transition: background-color .2s var(--mq-ease) !important;
+}
+.pageTitleContainer .headerSelect:hover, button.pageTitleButton:hover,
+.pageTitleContainer button.MuiButton-root:hover{
+  background: rgba(255,255,255,.12) !important;
+  border-radius: 6px !important;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .card .cardBox, .cardOverlayContainer, .cardOverlayButton{ transition: none !important; }
+}
+#slides-container .slide-buttons, #slides-container .button-container, #slides-container .detailButton:first-of-type{ }
+
+#slides-container .btnPlay,
+#slides-container .btnPlay.play-button,
+#slides-container button.btnPlay{
+
+  width: auto !important;
+  min-width: 108px !important;
+  height: 48px !important;
+  min-height: 48px !important;
+  padding: 8px 20px !important;
+  border-radius: 9999px !important;
+  background: #fff !important;
+  color: #000 !important;
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  border: 0 !important;
+  margin: 0 12px 0 0 !important;
+  white-space: nowrap !important;
+  transition: background-color .25s cubic-bezier(.4,0,.68,.06) !important;
+}
+#slides-container .btnPlay:hover{ background: rgba(255,255,255,.75) !important; }
+#slides-container .btnPlay .material-icons{
+  color: #000 !important; font-size: 22px !important;
+  width: 22px !important; height: 22px !important;
+}
+
+#slides-container .detail-button,
+#slides-container .detailButton.detail-button{
+  width: auto !important;
+  min-width: 48px !important;
+  height: 48px !important;
+  padding: 8px 20px !important;
+  border-radius: 9999px !important;
+  background: rgba(128,128,128,.4) !important;
+  color: #fff !important;
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  border: 0 !important;
+  margin: 0 12px 0 0 !important;
+  transition: background-color .25s cubic-bezier(.4,0,.68,.06) !important;
+}
+#slides-container .detail-button:hover{ background: rgba(128,128,128,.6) !important; }
+#slides-container .detail-button .material-icons{ color: #fff !important; font-size: 22px !important; }
+
+#slides-container .detail-button::after{
+  content: "More Info";
+  font-size: 18px;
+  font-weight: 500;
+  color: #fff;
+  white-space: nowrap;
+}
+
+#slides-container .watchlist-button{
+  width: 44px !important; min-width: 44px !important; height: 44px !important;
+  padding: 0 !important;
+  border-radius: 50% !important;
+  background: rgba(42,42,42,.6) !important;
+  border: 2px solid rgba(255,255,255,.5) !important;
+  color: #fff !important;
+  margin: 0 !important;
+  align-self: center !important;
+}
+#slides-container .watchlist-button:hover{ background: rgba(42,42,42,.9) !important; border-color:#fff !important; }
+#slides-container .slide-buttons, #slides-container .button-container{
+  display: flex !important;
+  align-items: center !important;
+  gap: 0 !important;
+  flex-wrap: nowrap !important;
+  margin-bottom: 24px !important;
+}
+
+#slides-container .pause-button,
+#slides-container [class*="pause"],
+#slides-container button[aria-label*="ause" i]{ display: none !important; }
+#slides-container .mute-button,
+#slides-container button[aria-label*="ute" i],
+#slides-container button[aria-label*="udio" i]{
+  width: 40px !important; height: 40px !important;
+  border-radius: 50% !important;
+  background: rgba(42,42,42,.4) !important;
+  border: 2px solid rgba(255,255,255,.5) !important;
+  color: #fff !important;
+  display: inline-flex !important; align-items: center !important; justify-content: center !important;
+  transition: background-color .2s cubic-bezier(.4,0,.68,.06) !important;
+}
+#slides-container .mute-button:hover{ background: rgba(42,42,42,.8) !important; border-color: #fff !important; }
+
+button[title="Play All" i], button[title="Shuffle" i],
+.MuiButtonGroup-root.mq-playall-group,
+.btnPlayAll, .btnShuffle.MuiButtonGroup-grouped{
+  display: none !important;
+}
+
+.MuiAppBar-root .MuiToolbar-root.MuiToolbar-dense{
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  min-height: 56px !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+.MuiAppBar-root{ padding-bottom: 0 !important; }
+
+.libraryPage .itemsContainer.vertical-grid,
+#itemsContainer.vertical-grid, .itemsContainer.vertical-wrap{
+  padding-top: 20px !important;
+  margin-top: 0 !important;
+}
+
+.MuiToolbar-root .MuiTypography-root.MuiTypography-h2,
+.MuiTypography-root.MuiTypography-h2{
+  border-radius: 4px !important;
+  padding: 0 4px !important;
+  background: transparent !important;
+  transition: background-color .15s cubic-bezier(.4,0,.68,.06) !important;
+}
+.MuiToolbar-root .MuiTypography-root.MuiTypography-h2:hover,
+.MuiTypography-root.MuiTypography-h2:hover{
+  background: rgba(255,255,255,.10) !important;
+  border-radius: 4px !important;
+}
+
+.card .cardOverlayContainer{
+  padding: 0 10px 10px !important;
+  gap: 6px !important;
+}
+.card .cardOverlayButton{
+  width: 30px !important; height: 30px !important; min-width: 30px !important;
+  border-width: 1.5px !important;
+}
+.card .cardOverlayFab-primary,
+.card .cardOverlayButton.cardOverlayFab-primary{
+  width: 34px !important; height: 34px !important;
+}
+.card .cardOverlayFab-primary .material-icons{ width: 16px !important; height: 16px !important; }
+.card .cardOverlayFab-primary .material-icons::before{ width: 16px !important; height: 16px !important; }
+.card .cardOverlayButton .material-icons{ font-size: 16px !important; }
+
+@media (max-width: 900px){
+  .card .cardOverlayButton{ width: 26px !important; height: 26px !important; min-width: 26px !important; }
+  .card .cardOverlayFab-primary{ width: 30px !important; height: 30px !important; }
+  .card .cardOverlayContainer{ padding: 0 8px 8px !important; gap: 4px !important; }
+}
+
+.guideVerticalScroller,
+.guideVerticalScroller.padded-left,
+.guideVerticalScroller.padded-right,
+.programGrid, .channelsContainer, .guideChannelList,
+.tvGuide, .guide-root, [class*="guideHorizontalScroller"]{
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.guideVerticalScroller{
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  max-height: calc(100vh - 150px) !important;
+}
+[class*="guideHorizontalScroller"], .programGrid{
+  overflow-x: auto !important;
+}
+
+.channelsContainer{
+  flex: 0 0 auto !important;
+  padding-bottom: 0 !important;
+}
+.channelsContainer .guide-channelHeaderCell,
+.channelsContainer [class*="channelHeader"]{
+  padding-left: 8px !important;
+  padding-right: 8px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.programCell, [class*="programCell"], .guideProgram{
+  border-radius: 4px !important;
+  background: #2a2a2e !important;
+  border: 1px solid rgba(0,0,0,.6) !important;
+  color: #e5e5e5 !important;
+  font-size: 13px !important;
+  overflow: hidden !important;
+}
+.programCell:hover, [class*="programCell"]:hover{
+  background: #3a3a40 !important;
+}
+
+.card .cardText,
+.card:hover .cardText,
+.card .cardTextCentered,
+.card .cardText-secondary{
+  max-height: none !important;
+  opacity: 1 !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  background: transparent !important;
+  padding: 2px 2px 0 !important;
+  margin: 0 !important;
+  text-align: left !important;
+  font-size: 13px !important;
+  line-height: 18px !important;
+  color: #fff !important;
+  transition: none !important;
+  border-radius: 0 !important;
+  position: static !important;
+}
+.card .cardText + .cardText,
+.card .cardText-secondary{ color: #a3a3a3 !important; }
+
+.card, .card:hover,
+.card .cardBox, .card:hover .cardBox,
+.card .cardScalable, .card:hover .cardScalable,
+.card .cardPadder, .card:hover .cardPadder,
+.card .cardImageContainer, .card:hover .cardImageContainer{
+  transform: none !important;
+  animation: none !important;
+}
+.card .cardBox, .card:hover .cardBox{
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 6px !important;
+  overflow: visible !important;
+  transition: none !important;
+}
+.card:hover{ z-index: 20 !important; }
+
+.card .cardScalable, .card .cardImageContainer, .card .cardPadder,
+.card:hover .cardScalable, .card:hover .cardImageContainer, .card:hover .cardPadder,
+.card .cardImageContainer img{
+  border-radius: 6px !important;
+  overflow: hidden !important;
+}
+
+.card .cardScalable::after{
+  content: "";
+  position: absolute; inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  border-radius: 6px;
+  background: linear-gradient(to top, rgba(0,0,0,.75) 0%, rgba(0,0,0,.15) 45%, rgba(0,0,0,0) 70%);
+  transition: opacity .2s ease;
+  z-index: 1;
+}
+.card:hover .cardScalable::after{ opacity: 1; }
+
+.card .cardOverlayContainer{
+  background: transparent !important;
+  display: flex !important;
+  align-items: flex-end !important;
+  justify-content: center !important;
+  padding: 0 0 12px !important;
+  gap: 8px !important;
+  opacity: 0 !important;
+  transition: opacity .18s ease !important;
+  z-index: 2 !important;
+}
+.card:hover .cardOverlayContainer{ opacity: 1 !important; }
+
+.card .cardOverlayButton,
+.card .cardOverlayButton.cardOverlayFab-primary{
+  width: 30px !important; height: 30px !important; min-width: 30px !important;
+  padding: 0 !important;
+  border-radius: 50% !important;
+  transform: none !important;
+  animation: none !important;
+  transition: background-color .15s ease !important;
+}
+.card .cardOverlayButton{
+  background: rgba(30,30,30,.85) !important;
+  border: 1.5px solid rgba(255,255,255,.6) !important;
+  color: #fff !important;
+}
+.card .cardOverlayButton:hover{ background: rgba(70,70,70,.95) !important; border-color:#fff !important; }
+.card .cardOverlayButton.cardOverlayFab-primary{
+  background: #fff !important; border: 0 !important; color: #000 !important;
+}
+.card .cardOverlayButton.cardOverlayFab-primary:hover{ background: #dcdcdc !important; }
+.card .cardOverlayButton .material-icons{ font-size: 15px !important; }
+
+@media (max-width: 900px){
+  .card .cardOverlayButton,
+  .card .cardOverlayButton.cardOverlayFab-primary{
+    width: 26px !important; height: 26px !important; min-width: 26px !important;
+  }
+  .card .cardOverlayContainer{ gap: 5px !important; padding-bottom: 8px !important; }
+}
+
+.detailPageWrapperContainer, .detailPagePrimaryContainer, .detailPageContent{
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.mq-season-stack{ display: block !important; }
+.mq-season-block{ margin: 0 0 28px !important; }
+.mq-season-block .mq-season-title{
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  color: #fff !important;
+  margin: 0 0 10px !important;
+}
+
+.detailPageContent .verticalSection,
+.detailPageContent .itemsContainer{
+  clear: both !important;
+}
+.detailImageContainer{ z-index: 2 !important; position: relative !important; }
+
+.season-selector-button,
+.emby-button.season-selector-button,
+.sectionTitleContainer.mq-season-sel,
+.sectionTitleContainer.mq-season-sel{ display: none !important; }
+
+.detailRibbon{
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  height: auto !important;
+  min-height: 0 !important;
+  overflow: visible !important;
+}
+.detailRibbon .infoWrapper{
+  width: 100% !important;
+  margin: 0 auto 18px 0 !important;
+  height: auto !important;
+  text-align: left !important;
+  align-self: stretch !important;
+}
+.detailRibbon .infoWrapper > *{ margin-left: 0 !important; }
+
+.detailRibbon .infoWrapper, .detailRibbon .mainDetailButtons{
+  margin-left: 0 !important;
+  max-width: none !important;
+  width: 100% !important;
+}
+
+.mainDetailButtons{
+  display: flex !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+  margin: 0 0 22px !important;
+  padding: 0 !important;
+}
+
+.mainDetailButtons .btnPlay,
+.mainDetailButtons .btnPlay.detailButton{
+  width: auto !important;
+  min-width: 108px !important;
+  height: 48px !important;
+  padding: 8px 22px !important;
+  border-radius: 9999px !important;
+  background: #fff !important;
+  color: #000 !important;
+  font-size: 17px !important;
+  font-weight: 600 !important;
+  display: inline-flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  border: 0 !important;
+  margin: 0 4px 0 0 !important;
+  transition: background-color .2s cubic-bezier(.4,0,.68,.06) !important;
+}
+.mainDetailButtons .btnPlay:hover{ background: rgba(255,255,255,.75) !important; }
+.mainDetailButtons .btnPlay .material-icons{
+  color: #000 !important; font-size: 24px !important; width: 24px !important; height: 24px !important;
+}
+.mainDetailButtons .btnPlay::after{
+  content: "Play";
+  font-size: 17px; font-weight: 600; color: #000; white-space: nowrap;
+}
+
+.mainDetailButtons .btnPlayTrailer{
+  width: auto !important;
+  min-width: 118px !important;
+  height: 48px !important;
+  padding: 8px 22px !important;
+  border-radius: 9999px !important;
+  background: rgba(128,128,128,.40) !important;
+  color: #fff !important;
+  font-size: 17px !important;
+  font-weight: 600 !important;
+  display: inline-flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  border: 0 !important;
+  margin: 0 8px 0 0 !important;
+  transition: background-color .2s cubic-bezier(.4,0,.68,.06) !important;
+}
+.mainDetailButtons .btnPlayTrailer:hover{ background: rgba(128,128,128,.60) !important; }
+.mainDetailButtons .btnPlayTrailer .material-icons{ color: #fff !important; font-size: 22px !important; }
+.mainDetailButtons .btnPlayTrailer::after{
+  content: "Trailer"; font-size: 17px; font-weight: 600; color: #fff; white-space: nowrap;
+}
+
+.mainDetailButtons .detailButton:not(.btnPlay):not(.btnPlayTrailer):not(.hide),
+.mainDetailButtons .watchlist-icon:not(.hide){
+  width: 42px !important; height: 42px !important; min-width: 42px !important;
+  padding: 0 !important;
+  border-radius: 50% !important;
+  background: rgba(42,42,42,.55) !important;
+  border: 2px solid rgba(255,255,255,.45) !important;
+  color: #fff !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 !important;
+  transition: background-color .18s ease, border-color .18s ease !important;
+}
+.mainDetailButtons .detailButton:not(.btnPlay):not(.btnPlayTrailer):not(.hide):hover,
+.mainDetailButtons .watchlist-icon:not(.hide):hover{
+  background: rgba(60,60,60,.9) !important;
+  border-color: #fff !important;
+}
+.mainDetailButtons .detailButton .material-icons{ font-size: 20px !important; }
+
+.mainDetailButtons .detailButton.hide,
+.mainDetailButtons .emby-button.hide,
+.mainDetailButtons .watchlist-icon.hide{ display: none !important; }
+
+.detailPagePrimaryContent .overview-text,
+.detailPagePrimaryContent .detail-clamp-text,
+.itemDetailsGroup{
+  max-width: 720px !important;
+}
+.detailPagePrimaryContent .overview-text p,
+.detail-clamp-text p{
+  font-size: 15px !important;
+  line-height: 1.5 !important;
+  color: #d2d2d2 !important;
+}
+
+.mq-season-block, .mq-season-title{ scroll-margin-top: 96px !important; }
+
+@media (max-width: 700px){
+  .mainDetailButtons .btnPlay{ min-width: 96px !important; height: 44px !important; }
+  .mainDetailButtons .btnPlayTrailer{ min-width: 106px !important; height: 44px !important; }
+  .mainDetailButtons .detailButton:not(.btnPlay):not(.btnPlayTrailer){
+    width: 38px !important; height: 38px !important; min-width: 38px !important;
+  }
+}
+
+.libraryPage .guideVerticalScroller.flex.flex-grow,
+.libraryPage .scrollSlider.flex.flex-grow,
+.libraryPage .flex.flex-grow.flex-direction-row,
+.libraryPage .programContainer.flex.flex-grow,
+.tvguide .flex.flex-grow{
+  flex-wrap: nowrap !important;
+  gap: 0 !important;
+  align-items: stretch !important;
+}
+
+.guideVerticalScroller{
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  align-items: stretch !important;
+}
+.guideVerticalScroller > .scrollSlider{
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: flex-start !important;
+  height: auto !important;
+}
+.channelsContainer{
+  flex: 0 0 auto !important;
+  align-self: flex-start !important;
+}
+.programGrid{
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  overflow-x: auto !important;
+}
+
+.programCell{
+  background: #26262a !important;
+  border: 1px solid rgba(0,0,0,.65) !important;
+  border-radius: 4px !important;
+  color: #e5e5e5 !important;
+  padding: 6px 10px !important;
+  overflow: hidden !important;
+  transition: background-color .15s ease !important;
+}
+.programCell:hover{ background: #38383f !important; }
+.programCell .guideProgramName{ align-items: center !important; }
+.programCell .guideProgramNameText{
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: #fff !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+.programCell .guideProgramSecondaryInfo,
+.programCell .secondaryText{ font-size: 11px !important; color: #a3a3a3 !important; }
+.programCell.programCell-active,
+.programCell.guide-programTextIcon-active{ background: #45454d !important; }
+
+.mq-season-stack{ display: block !important; margin: 8px 0 40px !important; }
+.mq-season-block{ margin: 0 0 34px !important; }
+.mq-season-title{
+  font-size: 22px !important;
+  font-weight: 600 !important;
+  color: #fff !important;
+  margin: 0 0 14px !important;
+  display: flex !important;
+  align-items: baseline !important;
+  gap: 12px !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+}
+.mq-season-count{ font-size: 13px !important; font-weight: 400 !important; color: #a3a3a3 !important; }
+
+.mq-ep-list{ display: block !important; }
+.mq-ep-row{
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 16px !important;
+  padding: 14px 12px !important;
+  border-top: 1px solid rgba(255,255,255,.10) !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+  transition: background-color .15s ease !important;
+}
+.mq-ep-row:last-child{ border-bottom: 1px solid rgba(255,255,255,.10) !important; }
+.mq-ep-row:hover{ background: rgba(255,255,255,.06) !important; }
+
+.mq-ep-num{
+  flex: 0 0 34px !important;
+  text-align: center !important;
+  font-size: 22px !important;
+  color: #808080 !important;
+  line-height: 84px !important;
+}
+.mq-ep-thumb{
+  position: relative !important;
+  flex: 0 0 150px !important;
+  width: 150px !important; height: 84px !important;
+  border-radius: 4px !important;
+  overflow: hidden !important;
+  background: #23232a !important;
+}
+.mq-ep-thumb img{ width: 100% !important; height: 100% !important; object-fit: cover !important; display: block !important; }
+.mq-ep-play{
+  position: absolute !important; inset: 0 !important;
+  background: rgba(0,0,0,.45) !important;
+  opacity: 0 !important;
+  transition: opacity .15s ease !important;
+}
+.mq-ep-play::after{
+  content: "" !important;
+  position: absolute !important; left: 50% !important; top: 50% !important;
+  width: 30px !important; height: 30px !important;
+  transform: translate(-50%,-50%) !important;
+  background: #fff !important;
+  -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>') center/contain no-repeat;
+  mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>') center/contain no-repeat;
+}
+.mq-ep-row:hover .mq-ep-play{ opacity: 1 !important; }
+.mq-ep-resume{
+  position: absolute !important; left: 0 !important; bottom: 0 !important;
+  height: 3px !important; background: #e50914 !important;
+}
+
+.mq-ep-body{ flex: 1 1 auto !important; min-width: 0 !important; }
+.mq-ep-head{ display: flex !important; align-items: center !important; gap: 10px !important; margin: 0 0 6px !important; }
+.mq-ep-name{ font-size: 15px !important; font-weight: 600 !important; color: #fff !important; }
+.mq-ep-time{ font-size: 13px !important; color: #a3a3a3 !important; margin-left: auto !important; }
+.mq-ep-watched{ color: #46d369 !important; font-size: 14px !important; }
+.mq-ep-ov{
+  margin: 0 !important;
+  font-size: 13px !important;
+  line-height: 1.45 !important;
+  color: #b3b3b3 !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 3 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+}
+@media (max-width: 700px){
+  .mq-ep-num{ display: none !important; }
+  .mq-ep-thumb{ flex: 0 0 116px !important; width: 116px !important; height: 66px !important; }
+  .mq-ep-ov{ -webkit-line-clamp: 2 !important; }
+}
+
+.card[data-type="CollectionFolder"] .cardText,
+.card[data-type="CollectionFolder"] .cardTextCentered,
+.card[data-type="CollectionFolder"] .cardFooter,
+.card[data-type="UserView"] .cardText,
+.card[data-collectiontype] .cardText,
+.card[data-collectiontype] .cardTextCentered{
+  display: none !important;
+}
+.card[data-type="CollectionFolder"] .cardBox,
+.card[data-collectiontype] .cardBox{ margin-bottom: 0 !important; }
+
+.homePage .verticalSection.mq-empty-section,
+.homeSectionsContainer .verticalSection.mq-empty-section{
+  display: none !important;
+}
+#slides-container .button-container, #slides-container .slide-buttons{
+  transform: none !important;
+  transform-origin: left center !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  flex-wrap: nowrap !important;
+  gap: 12px !important;
+}
+#slides-container .btnPlay, #slides-container .btnPlay.play-button{ order: 1 !important; }
+#slides-container .detail-button,
+#slides-container .detailButton.detail-button{ order: 2 !important; }
+#slides-container .watchlist-button{ order: 3 !important; }
+#slides-container .favorite-button{ order: 4 !important; }
+#slides-container .btnPlay, #slides-container .btnPlay.play-button, #slides-container .detail-button, #slides-container .detailButton.detail-button{
+  flex-direction: row !important;
+  white-space: nowrap !important;
+  line-height: 1 !important;
+}
+
+#slides-container .btnPlay,
+#slides-container .detail-button,
+#slides-container .watchlist-button{ margin: 0 !important; }
+#slides-container .btnPlay{
+  min-width: 108px !important;
+  height: 48px !important;
+  padding: 8px 22px !important;
+  border-radius: 9999px !important;
+  background: #fff !important;
+  color: #000 !important;
+  font-size: 17px !important;
+  font-weight: 600 !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+}
+#slides-container .detail-button,
+#slides-container .detailButton.detail-button{
+  min-width: 124px !important;
+  height: 48px !important;
+  padding: 8px 22px !important;
+  border-radius: 9999px !important;
+  background: rgba(128,128,128,.40) !important;
+  color: #fff !important;
+  font-size: 17px !important;
+  font-weight: 600 !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+}
+#slides-container .detail-button::after{
+  content: "More Info";
+  font-size: 17px;
+  font-weight: 600;
+  color: #fff;
+  white-space: nowrap;
+  line-height: 1;
+}
+#slides-container .watchlist-button{
+  width: 44px !important; min-width: 44px !important; height: 44px !important;
+  flex: 0 0 44px !important;
+}
+
+@media (max-width: 900px){
+#slides-container .btnPlay{
+    min-width: 96px !important; height: 42px !important; font-size: 15px !important; padding: 6px 18px !important;
+  }
+  #slides-container .detail-button{
+    min-width: 112px !important; height: 42px !important; font-size: 15px !important; padding: 6px 18px !important;
+  }
+  #slides-container .detail-button::after{ font-size: 15px; }
+  #slides-container .watchlist-button{ width: 40px !important; min-width: 40px !important; height: 40px !important; flex: 0 0 40px !important; }
+}
+
+#slides-container{ overflow: hidden !important; }
+#slides-container .mute-button{ z-index: 4 !important; }
+
+#slides-container .pagination-dots,
+#slides-container .slide-counter,
+#slides-container .arrow,
+#slides-container .prev-arrow,
+#slides-container .next-arrow,
+#slides-container [class*="arrow"]{ display: none !important; }
+
+.MuiAppBar-root > .MuiToolbar-root:first-child,
+.MuiAppBar-root .MuiToolbar-root:first-of-type{
+  min-height: 80px !important;
+  height: 80px !important;
+}
+
+.MuiAppBar-root .MuiToolbar-root:first-of-type ~ .MuiToolbar-root{
+  min-height: 56px !important;
+  height: 56px !important;
+}
+
+.mq-billboard,
+.mq-billboard.verticalSection{
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  border: 0 !important;
+  margin: 26px 0 !important;
+  width: auto !important;
+  max-width: none !important;
+  overflow: hidden !important;
+
+  box-sizing: border-box !important;
+}
+.mq-billboard.verticalSection{
+  padding: 0 25px !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.mq-billboard .mq-bb-tag{ display: none !important; }
+
+.mq-billboard .mq-bb-body{
+  position: relative !important;
+  display: flex !important;
+  left: unset !important;
+  bottom: unset !important;
+  width: min(46%, 560px) !important;
+  color: #fff !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  align-content: space-between !important;
+}
+#slides-container .watchlist-button{ display: none !important; }
+
+.MuiToolbar-root .MuiButton-root,
+.MuiToolbar-root button.MuiButtonBase-root.MuiButton-root{
+  border-radius: 4px !important;
+  transition: background-color .15s cubic-bezier(.4,0,.68,.06) !important;
+}
+
+.MuiToolbar-root .MuiButton-root .MuiTouchRipple-root,
+.MuiToolbar-root .MuiButton-root .MuiTouchRipple-child{
+  border-radius: 4px !important;
+}
+
+.MuiToolbar-root .MuiButton-root .MuiTypography-root.MuiTypography-h2,
+.MuiToolbar-root .MuiButton-root .MuiTypography-root.MuiTypography-h2:hover,
+.MuiButton-root .MuiTypography-root.MuiTypography-h2:hover{
+  background: transparent !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+}
+
+@keyframes backdrop-fadein{ from{ opacity: 0; } to{ opacity: 1; } }
+
+.itemBackdrop{
+  animation: backdrop-fadein .8s ease-in normal both !important;
+  background-attachment: scroll !important;
+  background-position: 50% !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  position: relative !important;
+}
+
+.itemBackdrop.mq-has-backdrop{ height: 40vh !important; }
+
+.backgroundContainer.withBackdrop{ opacity: .25 !important; }
+
+body.mq-has-detail .backdropContainer{ display: none !important; }
+
+.layout-desktop .detailPageWrapperContainer{
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: 60vh !important;
+}
+
+.detailLogo{ display: none !important; }
+
+.mq-title-logo-wrap{
+  max-width: 100% !important;
+  max-height: 250px !important;
+  margin-bottom: 4px !important;
+  padding-bottom: 5px !important;
+}
+.mq-title-logo{
+  max-width: 100% !important;
+  max-height: inherit !important;
+  object-fit: contain !important;
+  display: block !important;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,.6)) !important;
+}
+
+.itemMiscInfo, .nameContainer{ display: flex !important; flex-wrap: wrap !important; }
+.nameContainer{ flex-direction: column !important; }
+
+.mediaInfoItem, .mediaInfoOfficialRating, .mediaInfoCriticRating,
+.itemMiscInfo .mediaInfoItem, .listItemMediaInfo .mediaInfoItem{
+  display: inline-flex !important;
+  align-items: center !important;
+  height: 24px !important;
+  line-height: 24px !important;
+  margin: 0 6px 6px 0 !important;
+  border-radius: 4px !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  vertical-align: middle !important;
+  white-space: nowrap !important;
+  box-sizing: border-box !important;
+}
+[dir=ltr] .mediaInfoCriticRating{
+  background-position: 0 !important;
+  padding-left: 1.5em !important;
+}
+
+.MuiAppBar-root .MuiToolbar-root a.MuiButton-root[href="#/"],
+.MuiAppBar-root .MuiToolbar-root a.MuiButton-root[href="#/"]:hover{
+  background-color: transparent !important;
+}
+.MuiToolbar-root .MuiButton-root:not([href="#/"]),
+.MuiToolbar-root button.MuiButtonBase-root.MuiButton-root{
+  background-color: transparent !important;
+  background-image: none !important;
+}
+.MuiToolbar-root .MuiButton-root:not([href="#/"]):hover,
+.MuiToolbar-root button.MuiButtonBase-root.MuiButton-root:hover{
+
+  background-color: rgba(255,255,255,.10) !important;
+  border-radius: 4px !important;
+}
+
+.page.itemDetailPage.mq-page-has-backdrop{
+  padding-top: 0 !important;
+}
+
+.tvguide .guideVerticalScroller,
+.libraryPage .guideVerticalScroller,
+.tvguide .guideVerticalScroller.programContainer{
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  overscroll-behavior: contain !important;
+}
+
+.tvguide .guideVerticalScroller > .scrollSlider,
+.libraryPage .guideVerticalScroller > .scrollSlider{
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+.tvguide .programGrid,
+.libraryPage .programGrid{
+  height: auto !important;
+  max-height: none !important;
+  overflow-y: visible !important;
+  overflow-x: auto !important;
+}
+
+.programCell .guideProgramNameText,
+.tvguide .programCell .guideProgramNameText{
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  line-height: 20px !important;
+}
+.programCell .guideProgramSecondaryInfo,
+.tvguide .programCell .guideProgramSecondaryInfo{
+  font-size: 12.5px !important;
+  line-height: 17px !important;
+  color: #b3b3b3 !important;
+}
+.guide-headerTimeslots .timeslotHeader,
+.tvguide .timeslotHeader{ font-size: 14px !important; }
+
+.itemsContainer.vertical-grid > .card,
+.itemsContainer.vertical-wrap > .card,
+#itemsContainer.vertical-grid > .card{
+  box-sizing: border-box !important;
+  padding-left: 9px !important;
+  padding-right: 9px !important;
+}
+
+.card .cardOverlayButton.cardOverlayFab-primary{
+  background: rgba(255,255,255,.30) !important;
+  border: 1px solid rgba(255,255,255,.65) !important;
+  color: #fff !important;
+  box-shadow: 0 2px 10px rgba(0,0,0,.35) !important;
+}
+.card .cardOverlayButton.cardOverlayFab-primary:hover{
+  background: rgba(255,255,255,.45) !important;
+  border-color: #fff !important;
+}
+.card .cardOverlayButton.cardOverlayFab-primary .material-icons{ color: #fff !important; }
+
+.libraryPage.itemDetailPage,
+.page.libraryPage.itemDetailPage,
+.libraryPage:not(.homePage).itemDetailPage{
+  padding-top: 0 !important;
+}
+
+.mainDetailButtons .detailButton:not(.btnPlay):not(.btnPlayTrailer):not(.hide),
+.mainDetailButtons .watchlist-icon:not(.hide){
+  width: 42px !important;
+  height: 42px !important;
+  min-width: 42px !important;
+  max-width: 42px !important;
+  min-height: 42px !important;
+  max-height: 42px !important;
+  flex: 0 0 42px !important;
+  aspect-ratio: 1 / 1 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+  border-radius: 50% !important;
+  overflow: hidden !important;
+}
+@media (max-width: 700px){
+  .mainDetailButtons .detailButton:not(.btnPlay):not(.btnPlayTrailer):not(.hide),
+  .mainDetailButtons .watchlist-icon:not(.hide){
+    width: 38px !important; height: 38px !important;
+    min-width: 38px !important; max-width: 38px !important;
+    min-height: 38px !important; max-height: 38px !important;
+    flex: 0 0 38px !important;
+  }
+}
+
+.card:hover .cardOverlayButton.cardOverlayFab-primary{
+  -webkit-backdrop-filter: blur(10px) saturate(160%) !important;
+  backdrop-filter: blur(10px) saturate(160%) !important;
+}
+
+.tvguide .guideVerticalScroller,
+.libraryPage .guideVerticalScroller{
+  overflow: hidden !important;
+}
+.tvguide .guideVerticalScroller > .scrollSlider,
+.libraryPage .guideVerticalScroller > .scrollSlider{
+  height: 100% !important;
+  max-height: 100% !important;
+  overflow: hidden !important;
+  align-items: stretch !important;
+}
+.tvguide .channelsContainer,
+.libraryPage .channelsContainer{
+  align-self: stretch !important;
+  height: auto !important;
+  max-height: 100% !important;
+  overflow: hidden !important;
+}
+.tvguide .programGrid,
+.libraryPage .programGrid{
+  height: auto !important;
+  max-height: 100% !important;
+  overflow-x: auto !important;
+  overflow-y: auto !important;
+}
+
+.detailRibbon{
+  padding-left: 0 !important;
+  padding-right: 40px !important;
+}
+
+.itemBackdrop .mq-band-video{
+  position: absolute !important;
+  inset: 0 !important;
+  overflow: hidden !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+  opacity: 0;
+  transition: opacity .6s ease;
+}
+.itemBackdrop .mq-band-video.on{ opacity: 1; }
+.itemBackdrop .mq-band-video video{
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  display: block !important;
+}
+
+.itemBackdrop .mq-band-video::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(to top, rgba(20,20,20,1) 0%, rgba(20,20,20,.35) 45%, rgba(20,20,20,0) 100%);
+}
+
+.MuiAppBar-root a:focus, .MuiAppBar-root button:focus, .MuiAppBar-root .MuiButtonBase-root:focus,
+.MuiButtonBase-root:focus, .emby-button:focus, .paper-icon-button-light:focus,
+.card:focus, .card a:focus, .cardOverlayButton:focus, .cardBox:focus,
+.detailButton:focus, .mainDetailButtons button:focus,
+#slides-container button:focus, .itemsContainer .card:focus{
+  outline: none !important;
+}
+
+.MuiAppBar-root, .MuiAppBar-root .MuiToolbar-root{ overflow: visible !important; }
+
+.MuiAppBar-root a.MuiButton-root:focus-visible,
+.MuiAppBar-root button.MuiButtonBase-root:focus-visible,
+.MuiAppBar-root .MuiButtonBase-root:focus-visible{
+  outline: none !important;
+  background-color: rgba(255,255,255,.14) !important;
+  box-shadow: 0 0 0 2px rgba(255,255,255,.9) !important;
+}
+
+.MuiAppBar-root a.MuiButton-root[href="#/"]:focus-visible{
+  background-color: transparent !important;
+  box-shadow: 0 0 0 2px rgba(255,255,255,.9) !important;
+}
+
+.detailButton:focus-visible,
+.mainDetailButtons button:focus-visible,
+#slides-container button:focus-visible,
+.paper-icon-button-light:focus-visible{
+  outline: none !important;
+  box-shadow: 0 0 0 2px rgba(20,20,20,.9), 0 0 0 4px rgba(255,255,255,.9) !important;
+}
+
+.card .cardOverlayButton:focus-visible{
+  outline: none !important;
+  box-shadow: inset 0 0 0 2px #fff !important;
+}
+
+.card:focus-visible .cardBox,
+.card a:focus-visible .cardBox{
+  outline: none !important;
+  box-shadow: 0 0 0 2px rgba(255,255,255,.95) !important;
+  border-radius: 6px !important;
+}
+
+.programCell:focus-visible{
+  outline: none !important;
+  box-shadow: inset 0 0 0 2px #fff !important;
+  border-radius: 4px !important;
+}
+
+.itemMiscInfo,
+.itemMiscInfo.itemMiscInfo-primary{
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  gap: 0 !important;
+  margin: 0 0 14px !important;
+  padding: 0 !important;
+  font-size: 14px !important;
+  line-height: 22px !important;
+  color: #d2d2d2 !important;
+}
+.itemMiscInfo .mediaInfoItem,
+.itemMiscInfo .mediaInfoOfficialRating,
+.itemMiscInfo .mediaInfoCriticRating,
+.itemMiscInfo .endsAt{
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  height: auto !important;
+  min-height: 0 !important;
+  line-height: 22px !important;
+  margin: 0 18px 6px 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  color: #d2d2d2 !important;
+  white-space: nowrap !important;
+}
+
+.itemMiscInfo .mediaInfoOfficialRating{
+  border: 1px solid rgba(255,255,255,.45) !important;
+  border-radius: 3px !important;
+  padding: 0 7px !important;
+  font-size: 12px !important;
+  line-height: 20px !important;
+  color: #fff !important;
+  letter-spacing: .02em !important;
+}
+
+.itemMiscInfo .mediaInfoCriticRating{
+  padding-left: 0 !important;
+  background-position: 0 center !important;
+}
+.itemMiscInfo .mediaInfoItem-watchProgress{ color: #a3a3a3 !important; }
+.itemMiscInfo .endsAt{ color: #a3a3a3 !important; }
+
+.itemExternalLinks,
+.itemExternalLinks.mq-links-row{
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  gap: 0 !important;
+  margin: 0 0 18px !important;
+  padding: 0 !important;
+  font-size: 13px !important;
+  line-height: 20px !important;
+}
+.itemExternalLinks > *{
+  margin: 0 16px 6px 0 !important;
+}
+.itemExternalLinks a,
+.itemExternalLinks .button-link{
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  letter-spacing: .02em !important;
+  text-decoration: none !important;
+  opacity: .9 !important;
+  transition: opacity .15s ease !important;
+}
+.itemExternalLinks a:hover,
+.itemExternalLinks .button-link:hover{ opacity: 1 !important; text-decoration: underline !important; }
+
+.itemExternalLinks{ font-size: 0 !important; }
+.itemExternalLinks > *{ font-size: 13px !important; }
+
+.itemMiscInfo .mediaInfoItem.mediaInfoOfficialRating{ order: 1 !important; }
+.itemMiscInfo .mediaInfoItem.mediaInfoCriticRating{ order: 5 !important; margin-right: 18px !important; }
+.itemMiscInfo .mediaInfoItem{ order: 3 !important; }
+
+.itemMiscInfo .mq-badges{ order: 6 !important; margin-left: 0 !important; }
+.itemMiscInfo .mediaInfoCriticRating{ order: 5 !important; }
+
+.itemMiscInfo .endsAt,
+.itemMiscInfo .mediaInfoItem-watchProgress{ display: none !important; }
+
+.itemMiscInfo .mq-badges{
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  margin: 0 0 6px !important;
+}
+.itemMiscInfo .mq-badge{
+  display: inline-flex !important;
+  align-items: center !important;
+  height: 20px !important;
+  padding: 0 6px !important;
+  border: 1px solid rgba(255,255,255,.45) !important;
+  border-radius: 3px !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  letter-spacing: .06em !important;
+  color: #e5e5e5 !important;
+  white-space: nowrap !important;
+}
+
+.mq-genre-line{
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  margin: 0 0 14px !important;
+  font-size: 14px !important;
+  line-height: 22px !important;
+  color: #d2d2d2 !important;
+}
+.mq-genre-line .mq-genre{ white-space: nowrap !important; }
+.mq-genre-line .mq-dot{
+  color: #6d6d6d !important;
+  margin: 0 9px !important;
+  font-size: 12px !important;
+  line-height: 22px !important;
+}
+
+.itemMiscInfo.itemMiscInfo-primary{
+  display: flex !important;
+  align-items: center !important;
+  flex-wrap: nowrap !important;
+  width: 100% !important;
+  gap: 0 !important;
+}
+.itemMiscInfo .ratings-row{
+  display: flex !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 0 !important;
+  min-width: 0 !important;
+}
+.itemMiscInfo .ratings-row > *{ margin: 0 18px 0 0 !important; }
+
+.itemMiscInfo .mq-badges{
+  margin-left: auto !important;
+  margin-right: 0 !important;
+  order: 9 !important;
+  flex: 0 0 auto !important;
+  gap: 10px !important;
+}
+
+.itemMiscInfo .mq-a11y{
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  color: #e5e5e5 !important;
+}
+.itemMiscInfo .mq-ico-ad{ width: 30px !important; height: 30px !important; }
+.itemMiscInfo .mq-ico-cc{ width: 17px !important; height: 17px !important; }
+
+.itemMiscInfo .mq-badge{ flex: 0 0 auto !important; }
+
+@media (max-width: 900px){
+  .itemMiscInfo.itemMiscInfo-primary{ flex-wrap: wrap !important; }
+  .itemMiscInfo .mq-badges{ margin-left: 0 !important; }
+}
+
+.itemMiscInfo .ratings-row .mq-a11y{ order: 8 !important; margin-right: 0 !important; }
+
+body.mq-has-player .MuiAppBar-root,
+body.mq-has-player .backdropContainer,
+body.mq-has-player .itemBackdrop{
+  display: none !important;
+}
+
+body.mq-has-player video,
+body.mq-has-player video.htmlvideoplayer{
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: contain;
+  background: #000 !important;
+  z-index: 1 !important;
+}
+
+body.mq-has-player .skinHeader,
+body.mq-has-player .videoOsdTop{
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: auto !important;
+  width: 100% !important;
+  z-index: 1000 !important;
+  background: linear-gradient(to bottom, rgba(0,0,0,.75) 0%, rgba(0,0,0,0) 100%) !important;
+}
+body.mq-has-player .videoOsdBottom{
+  position: fixed !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  top: auto !important;
+  width: 100% !important;
+  z-index: 1000 !important;
+}
+
+body.mq-has-player .skinHeader .MuiToolbar-root{
+  position: static !important;
+  top: auto !important;
+  z-index: auto !important;
+  min-height: 56px !important;
+  height: 56px !important;
+}
+
+body.mq-has-player .MuiModal-root,
+body.mq-has-player .MuiPopover-root{
+  z-index: 4000 !important;
+}
+
+body.mq-has-player .dialogContainer,
+body.mq-has-player .actionSheet{
+  z-index: 999999 !important;
+}
+
+body.mq-has-player .videoPlayerContainer,
+body.mq-has-player .skinBody{
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+body[data-mq-item-type="TvChannel"] .detailImageContainer .cardImageContainer,
+body[data-mq-item-type="TvChannel"] .detailImageContainer .cardPadder{
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-color: #1c1c1f !important;
+}
+body[data-mq-item-type="TvChannel"] .detailImageContainer .cardPadder{
+  padding-bottom: 56.25% !important;
+}
+body[data-mq-item-type="TvChannel"] .detailImageContainer img{
+  object-fit: contain !important;
+  background: #1c1c1f !important;
+}
+
+.backdropContainer,
+.backgroundContainer.withBackdrop{
+  display: none !important;
+}
+
+.homeSectionsContainer,
+.homePage .sections{
+  position: relative !important;
+  z-index: 6 !important;
+  background-color: #141414 !important;
+}
+.homeSectionsContainer::before,
+.homePage .sections::before{
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  top: -180px;
+  height: 180px;
+  background: linear-gradient(to bottom, rgba(20,20,20,0) 0%, rgba(20,20,20,.65) 55%, #141414 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+body.mq-has-osd .skinHeader,
+body.mq-has-osd #videoOsdPage,
+body.mq-has-osd .videoOsdPage,
+body.mq-has-osd .videoOsdTop,
+body.mq-has-osd .videoOsdBottom,
+body.mq-has-osd .osdControls{
+  z-index: 3000 !important;
+}
+
+.mq-season-stack{
+  display: block !important;
+  max-width: 1500px !important;
+  margin: 12px 0 48px !important;
+}
+.mq-season-block{ margin: 0 0 46px !important; }
+
+.mq-season-head{
+  display: grid !important;
+  grid-template-columns: 132px minmax(0,1fr) !important;
+  gap: 22px !important;
+  align-items: start !important;
+  margin: 0 0 20px !important;
+  padding: 0 0 18px !important;
+  border-bottom: 1px solid rgba(255,255,255,.10) !important;
+}
+.mq-season-poster{
+  width: 132px !important;
+  aspect-ratio: 2 / 3 !important;
+  border-radius: 6px !important;
+  overflow: hidden !important;
+  background: #23232a !important;
+}
+.mq-season-poster img{
+  width: 100% !important; height: 100% !important;
+  object-fit: cover !important; display: block !important;
+}
+.mq-season-meta{ min-width: 0 !important; padding-top: 4px !important; }
+.mq-season-title{
+  font-size: 28px !important;
+  font-weight: 700 !important;
+  color: #fff !important;
+  margin: 0 0 6px !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  display: block !important;
+  letter-spacing: -.01em !important;
+}
+.mq-season-count{
+  font-size: 13px !important;
+  color: #a3a3a3 !important;
+  margin: 0 0 10px !important;
+}
+.mq-season-ov{
+  margin: 0 !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+  color: #b3b3b3 !important;
+  max-width: 90ch !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 3 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+}
+
+.mq-ep-list{ display: block !important; }
+.mq-ep-row{
+  display: grid !important;
+  grid-template-columns: 44px 214px minmax(0,1fr) !important;
+  align-items: center !important;
+  gap: 20px !important;
+  padding: 16px 14px !important;
+  border-top: 1px solid rgba(255,255,255,.08) !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  transition: background-color .15s ease !important;
+}
+.mq-ep-row:last-child{ border-bottom: 1px solid rgba(255,255,255,.08) !important; }
+.mq-ep-row:hover{ background: rgba(255,255,255,.07) !important; }
+
+.mq-ep-num{
+  flex: none !important;
+  text-align: center !important;
+  font-size: 24px !important;
+  font-weight: 400 !important;
+  color: #808080 !important;
+  line-height: 1 !important;
+}
+.mq-ep-thumb{
+  position: relative !important;
+  flex: none !important;
+  width: 214px !important;
+  height: 120px !important;
+  border-radius: 5px !important;
+  overflow: hidden !important;
+  background: #23232a !important;
+}
+.mq-ep-play::after{ width: 36px !important; height: 36px !important; }
+
+.mq-ep-body{ min-width: 0 !important; }
+.mq-ep-head{
+  display: flex !important;
+  align-items: baseline !important;
+  gap: 14px !important;
+  margin: 0 0 7px !important;
+}
+.mq-ep-name{
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  color: #fff !important;
+  min-width: 0 !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+.mq-ep-time{
+  font-size: 13px !important;
+  color: #a3a3a3 !important;
+  margin-left: auto !important;
+  flex: none !important;
+}
+.mq-ep-ov{
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+  color: #b3b3b3 !important;
+  -webkit-line-clamp: 2 !important;
+}
+
+@media (max-width: 900px){
+  .mq-season-head{ grid-template-columns: 96px minmax(0,1fr) !important; gap: 16px !important; }
+  .mq-season-poster{ width: 96px !important; }
+  .mq-season-title{ font-size: 22px !important; }
+  .mq-ep-row{ grid-template-columns: 32px 148px minmax(0,1fr) !important; gap: 14px !important; }
+  .mq-ep-thumb{ width: 148px !important; height: 83px !important; }
+  .mq-ep-name{ white-space: normal !important; }
+}
+
+.itemMiscInfo .endsAt,
+.mediaInfoItem-endsAt,
+.endsAt{
+  display: none !important;
+}
+
+.mq-season-stack .mq-season-head .mq-season-title{
+  font-size: 28px !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  color: #fff !important;
+  margin: 0 0 6px !important;
+  letter-spacing: -.01em !important;
+}
+.mq-season-stack .mq-season-head .mq-season-count{
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  color: #a3a3a3 !important;
+}
+
+.mq-season-stack .mq-season-head{
+  grid-template-columns: 278px minmax(0,1fr) !important;
+  gap: 20px !important;
+  padding: 0 14px 18px !important;
+  align-items: end !important;
+}
+.mq-season-stack .mq-season-poster{
+  width: 186px !important;
+  margin: 0 !important;
+}
+@media (max-width: 900px){
+  .mq-season-stack .mq-season-head{ grid-template-columns: 162px minmax(0,1fr) !important; }
+  .mq-season-stack .mq-season-poster{ width: 120px !important; }
+  .mq-season-stack .mq-season-head .mq-season-title{ font-size: 22px !important; }
+}
+
+.itemMiscInfo.itemMiscInfo-primary .mq-badges{
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+.itemMiscInfo .mq-badge{
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 21px !important;
+  padding: 0 7px !important;
+  border: 1px solid rgba(255,255,255,.45) !important;
+  border-radius: 3px !important;
+  background: transparent !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  letter-spacing: .02em !important;
+  color: #e5e5e5 !important;
+  line-height: 1 !important;
+}
+
+.itemMiscInfo .mq-spatial{
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  color: #e5e5e5 !important;
+}
+.itemMiscInfo .mq-ico-spatial{ width: 20px !important; height: 20px !important; flex: none !important; }
+.itemMiscInfo .mq-spatial-word{
+  display: inline-flex !important;
+  flex-direction: column !important;
+  line-height: 1.02 !important;
+}
+.itemMiscInfo .mq-spatial-word b{
+  font-size: 11px !important; font-weight: 700 !important; font-style: normal !important;
+}
+.itemMiscInfo .mq-spatial-word i{
+  font-size: 11px !important; font-weight: 400 !important; font-style: normal !important;
+  color: #b3b3b3 !important;
+}
+
+.itemMiscInfo.itemMiscInfo-primary .endsAt,
+.itemMiscInfo.itemMiscInfo-primary .mediaInfoItem-watchProgress{
+  display: none !important;
+}
+
+.load-more-discovery-btn{display:none!important}
+
+.mq-season-stack .mq-season-head{align-items:center !important;}
+
+html.transparentDocument,
+html.transparentDocument body,
+html.transparentDocument .mainAnimatedPages,
+html.transparentDocument .mainAnimatedPage,
+html.transparentDocument .skinBody,
+html.transparentDocument #reactRoot,
+html.transparentDocument .backgroundContainer,
+html.transparentDocument .videoPlayerContainer,
+html.transparentDocument .libraryPage,
+html.transparentDocument #videoOsdPage{
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+}
+

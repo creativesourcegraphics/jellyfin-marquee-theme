@@ -1,0 +1,12 @@
+# local copies of your own assets / generated files
+assets/*.png
+assets/*.jpg
+assets/*.woff2
+
+Jellyfin.Plugin.JavaScriptInjector.xml
+
+# editor / OS noise
+.DS_Store
+Thumbs.db
+*.bak
+__pycache__/
